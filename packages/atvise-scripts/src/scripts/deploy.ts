@@ -131,14 +131,11 @@ export default {
       for await (const entry of readdirp(root)) {
         await paths.ensurePath(entry.path);
         await deployFile(entry, { warn });
-        count++;
 
-        // eslint-disable-next-line no-unused-expressions
-        progress?.(`Uploaded ${count} files`);
+        progress?.(`Uploaded ${++count} files`);
       }
     }
 
-    // eslint-disable-next-line no-unused-expressions
     progress?.(`Uploaded ${count} files 🎉`);
   },
 } as Script;
