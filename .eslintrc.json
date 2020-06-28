@@ -1,0 +1,25 @@
+{
+  "extends": ["@ls-age", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "compat/compat": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "@ls-age",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/typescript",
+        "prettier",
+        "prettier/@typescript-eslint"
+      ],
+      "rules": {
+        "consistent-return": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    }
+  ]
+}
