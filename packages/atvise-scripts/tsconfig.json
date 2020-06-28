@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "lib": ["esnext"],
+    "module": "esnext",
+    "target": "esnext",
+    "noEmitOnError": false,
+    "strictNullChecks": true
+  }
+}

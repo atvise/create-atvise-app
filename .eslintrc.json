@@ -4,7 +4,9 @@
     "ecmaVersion": 2020
   },
   "rules": {
-    "compat/compat": "off"
+    "compat/compat": "off",
+    "// For optional chaining": "off",
+    "no-unused-expressions": "off"
   },
   "overrides": [
     {
@@ -17,6 +19,9 @@
         "prettier/@typescript-eslint"
       ],
       "rules": {
+        "compat/compat": "off",
+        "// For optional chaining": "off",
+        "no-unused-expressions": "off",
         "consistent-return": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off"
       }

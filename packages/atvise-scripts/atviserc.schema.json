@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "description": "A schema for .atviserc.json files.",
+  "type": "object",
+  "properties": {
+    "host": {
+      "type": "string",
+      "description": "The host atvise server is running at",
+      "default": "localhost"
+    },
+    "port": {
+      "type": "object",
+      "description": "The ports atvise server is listening at",
+      "properties": {
+        "opc": {
+          "type": "number",
+          "description": "atvise server's OPC-UA port",
+          "default": 4840
+        },
+        "http": {
+          "type": "number",
+          "description": "atvise server's HTTP port",
+          "default": 80
+        }
+      },
+      "additionalProperties": false
+    },
+    "deploy": {
+      "type": "object",
+      "description": "Configuration for 'atvise-scripts deploy'",
+      "properties": {
+        "outPath": {
+          "description": "The files to deploy",
+          "oneOf": [{ "type": "string" }, { "type": "array", "items": { "type": "string" } }],
+          "default": ["out", "build"]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

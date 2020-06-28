@@ -28,6 +28,7 @@ importers:
       ms: 2.1.2
       node-opcua: 0.0.60
       ora: 4.0.4
+      prompts: 2.3.2
       readdirp: 3.4.0
     devDependencies:
       '@babel/core': 7.10.3
@@ -59,6 +60,7 @@ importers:
       ms: ^2.1.2
       node-opcua: 0.0.60
       ora: ^4.0.4
+      prompts: ^2.3.2
       readdirp: ^3.4.0
       rollup: 2.18.0
       rollup-plugin-add-shebang: 0.3.1
