@@ -52,6 +52,7 @@ const typeDefinifions = new Map<string, string>([
   ['.css', 'VariableTypes.ATVISE.Resource.Css'],
   ['.ico', 'VariableTypes.ATVISE.Resource.Icon'],
   ['.html', 'VariableTypes.ATVISE.Resource.Html'],
+  ['.htm', 'VariableTypes.ATVISE.Resource.Html'],
   ['.png', 'VariableTypes.ATVISE.Resource.Png'],
   ['.js', 'VariableTypes.ATVISE.Resource.Javascript'],
   ['.txt', 'VariableTypes.ATVISE.Resource.Text'],
