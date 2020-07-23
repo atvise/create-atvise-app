@@ -46,16 +46,23 @@ export async function runScript(script: scripts.Script, scriptName: string) {
     ? (text: string) => (spinner.text = `Running '${scriptName}': ${text}`)
     : undefined;
 
+  let persisted = false;
+  const pauseSpinnerAndLog = (logFn: (text: string) => void) => (text: string) => {
+    if (persisted) {
+      spinner?.stop();
+    } else {
+      spinner?.stopAndPersist();
+      persisted = true;
+    }
+
+    logFn(text);
+    spinner?.start();
+  };
+
   try {
     await script.run({
-      warn: (text: string) => {
-        spinner?.stopAndPersist();
-
-        console.warn(`
-${yellow(text)}
-`);
-        spinner?.start();
-      },
+      info: pauseSpinnerAndLog((text: string) => console.info(`    ${grey(text)}`)),
+      warn: pauseSpinnerAndLog((text: string) => console.warn(`    ${yellow(text)}`)),
       progress,
       async confirm(message) {
         if (!process.stdout.isTTY) return false;

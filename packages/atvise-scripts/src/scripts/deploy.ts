@@ -21,7 +21,7 @@ export class PathCreator {
   created = new Set<string>();
 
   async ensurePath(path: string) {
-    let current: string;
+    let current: string | undefined;
 
     for (const part of path.split('/').slice(0, -1)) {
       current = current ? join(current, part) : part;
@@ -101,7 +101,8 @@ Please remove the reference from '${nodeId}' to '${ResourceType.Svg}.Translate' 
   debug(`Deployed '${nodeId}'`);
 }
 
-export default {
+const deploy: Script = {
+  name: 'deploy',
   description: 'Deploy build files to atvise server',
   async run({ progress, warn = console.warn, confirm = () => false }: ScriptRunnerOptions) {
     let config: Config = defaults;
@@ -139,4 +140,6 @@ export default {
 
     progress?.(`Uploaded ${count} files 🎉`);
   },
-} as Script;
+};
+
+export default deploy;

@@ -27,7 +27,8 @@
     "node-opcua": "0.0.60",
     "ora": "^4.0.4",
     "prompts": "^2.3.2",
-    "readdirp": "^3.4.0"
+    "readdirp": "^3.4.0",
+    "write-pkg": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.10.3",
