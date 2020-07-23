@@ -33,12 +33,28 @@ export function normalize(atviserc: FullAtviserc): Config {
   };
 }
 
+interface LoadConfigOptions {
+  dir?: string;
+  name?: string;
+  path?: string;
+  fallbackToDefaults?: boolean;
+}
+
 export async function load({
   dir = process.cwd(),
   name = '.atviserc.json',
   path = `${dir}/${name}`,
-} = {}): Promise<Config> {
-  const raw: Atviserc = await import(path);
+  fallbackToDefaults = false,
+}: LoadConfigOptions = {}): Promise<Config> {
+  let raw: Atviserc;
+
+  try {
+    raw = await import(path);
+  } catch (error) {
+    if (fallbackToDefaults) return defaults;
+
+    throw error;
+  }
 
   return normalize(merge(defaults, raw) as FullAtviserc);
 }
