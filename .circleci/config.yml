@@ -12,7 +12,7 @@ orbs:
         steps:
           - run:
               name: Install pnpm
-              command: npm i -g pnpm@^5.4.0
+              command: sudo npm i -g pnpm@^5.4.0
       attach:
         steps:
           - checkout:
@@ -32,7 +32,7 @@ jobs:
       - atvise/install-pnpm
       - run:
           name: Install dependencies
-          command: sudo pnpm install --frozen-lockfile
+          command: pnpm install --frozen-lockfile
       - save_cache:
           key: v1-deps-{{ checksum "pnpm-lock.yaml" }}
           paths:
