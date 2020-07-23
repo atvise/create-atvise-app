@@ -1,7 +1,7 @@
 import { promises as fsp } from 'fs';
 import writePkg from 'write-pkg';
-import type { Script } from '.';
 import { load } from '../lib/config';
+import type { Script } from '.';
 
 const prepare: Script = {
   name: 'prepare',
