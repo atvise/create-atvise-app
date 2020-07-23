@@ -1,5 +1,5 @@
 import getopts from 'getopts';
-import { bold, magenta, cyan, dim, red, yellow } from 'kleur';
+import { bold, magenta, cyan, dim, red, yellow, grey } from 'kleur';
 import setupDebug from 'debug';
 import ora from 'ora';
 import prompts from 'prompts';
@@ -15,24 +15,49 @@ const colorOption = (option: string, alias?: string) =>
 
 type UsageContext = { script: scripts.Script; scriptName: string };
 
+const table = (lines: string[][], indent = '  ') => {
+  const widths = lines.reduce(
+    (soFar, line) => soFar.map((s, i) => Math.max(s, line[i].length)),
+    lines[0].map(() => 0)
+  );
+
+  return `${indent}${lines
+    .map((line) => line.map((cell, i) => cell.padEnd(widths[i])).join(indent))
+
+    .join(`\n${indent}`)}`;
+};
+
+const output = console;
+
 export async function printUsage(context?: UsageContext): Promise<void> {
   const pkg = await loadPackage();
   const binName = Object.keys(pkg.bin)[0];
 
   const usage = `${binName} ${context?.scriptName ?? '<script>'} [options]`;
-  const description = context?.script.description;
+  const description = context?.script?.description ?? pkg.description;
 
-  console.log(
+  const sections = [
     `${bold(`Usage: ${magenta(usage)}`)}
 
-  ${description}
+  ${description}`,
+  ];
 
-${bold('Options:')}
+  if (!context?.script) {
+    sections.push(
+      bold('Scripts:'),
+      table(Object.values(scripts).map((script) => [cyan(script.name), script.description]))
+    );
+  }
 
-  ${colorOption('version', 'v')}  Print ${binName} version and exit
-  ${colorOption('help', 'h')}     Print usage and exit
-`
+  sections.push(
+    bold('Options:'),
+    table([
+      [colorOption('version', 'v'), `Print ${binName} version and exit`],
+      [colorOption('help', 'h'), `Print usage and exit`],
+    ])
   );
+
+  output.log(`${sections.join('\n\n')}\n`);
 }
 
 export async function runScript(script: scripts.Script, scriptName: string) {
@@ -61,8 +86,8 @@ export async function runScript(script: scripts.Script, scriptName: string) {
 
   try {
     await script.run({
-      info: pauseSpinnerAndLog((text: string) => console.info(`    ${grey(text)}`)),
-      warn: pauseSpinnerAndLog((text: string) => console.warn(`    ${yellow(text)}`)),
+      info: pauseSpinnerAndLog((text: string) => output.info(`    ${grey(text)}`)),
+      warn: pauseSpinnerAndLog((text: string) => output.warn(`    ${yellow(text)}`)),
       progress,
       async confirm(message) {
         if (!process.stdout.isTTY) return false;
@@ -107,7 +132,7 @@ export async function runBin(argv = process.argv.slice(2)): Promise<void> {
   // Handle '--version'
   if (version) {
     const pkg = await loadPackage();
-    return console.log(pkg.version);
+    return output.log(pkg.version);
   }
 
   const script = scripts[scriptName];
@@ -141,9 +166,9 @@ if (!module.parent) {
         await printUsage();
       }
 
-      console.error(red(error.message));
+      output.error(red(error.message));
     } else {
-      console.error(error);
+      output.error(error);
     }
 
     process.exitCode = 1;
