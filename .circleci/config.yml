@@ -32,7 +32,7 @@ jobs:
       - atvise/install-pnpm
       - run:
           name: Install dependencies
-          command: pnpm install --frozen-lockfile
+          command: sudo pnpm install --frozen-lockfile
       - save_cache:
           key: v1-deps-{{ checksum "pnpm-lock.yaml" }}
           paths:
