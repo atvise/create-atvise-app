@@ -25,6 +25,7 @@ export default {
       dir: './out',
       format: 'es',
       entryFileNames: '[name].mjs',
+      chunkFileNames: '[name]-[hash].mjs',
     },
   ],
 };
