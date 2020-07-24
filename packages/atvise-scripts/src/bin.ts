@@ -135,7 +135,7 @@ export async function runBin(argv = process.argv.slice(2)): Promise<void> {
     return output.log(pkg.version);
   }
 
-  const script = scripts[scriptName];
+  const script = scripts[scriptName as keyof typeof scripts];
   const scriptContext = script && { scriptName, script };
 
   // Handle '--help'

@@ -3,6 +3,7 @@ import { Atviserc } from '../types/Atviserc';
 
 export type FullAtviserc = Required<Atviserc> & {
   port: Required<Atviserc['port']>;
+  deploy: Required<Atviserc['deploy']>;
 };
 
 export type Config = FullAtviserc & {

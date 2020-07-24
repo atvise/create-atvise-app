@@ -6,7 +6,8 @@
     "lib": ["esnext"],
     "module": "esnext",
     "target": "esnext",
+    "noEmit": true,
     "noEmitOnError": false,
-    "strictNullChecks": true
+    "strict": true
   }
 }
