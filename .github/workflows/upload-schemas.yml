@@ -3,7 +3,7 @@ name: upload schemas
 on:
   push:
     branches:
-      - sync-schema
+      - master
 
 jobs:
   deploy:
