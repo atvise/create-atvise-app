@@ -30,6 +30,7 @@ importers:
       ora: 4.0.4
       prompts: 2.3.2
       readdirp: 3.4.0
+      write-json-file: 3.2.0
       write-pkg: 4.0.0
     devDependencies:
       '@babel/core': 7.10.3
@@ -69,6 +70,7 @@ importers:
       rollup-plugin-add-shebang: 0.3.1
       tslib: 2.0.0
       typescript: 3.9.5
+      write-json-file: 3.2.0
       write-pkg: ^4.0.0
   packages/modular-webmi:
     devDependencies:
