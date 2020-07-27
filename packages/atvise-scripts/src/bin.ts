@@ -3,6 +3,7 @@ import { bold, magenta, cyan, dim, red, yellow, grey } from 'kleur';
 import setupDebug from 'debug';
 import ora from 'ora';
 import prompts from 'prompts';
+import ms from 'ms';
 import * as scripts from './scripts';
 import { UsageError, AppError } from './lib/errors';
 
@@ -72,6 +73,25 @@ export async function runScript(script: scripts.Script, scriptName: string) {
     : undefined;
 
   let persisted = false;
+  const pauseSpinnerAsync = async <R>(fn: () => R | Promise<R>) => {
+    if (persisted) {
+      spinner?.stop();
+    } else {
+      spinner?.stopAndPersist();
+      persisted = true;
+    }
+
+    const result = await fn();
+    spinner?.start();
+    return result;
+  };
+
+  const doInteractive = <R>(fn: () => R | Promise<R>, fallback: R) => {
+    if (!process.stdout.isTTY) return fallback;
+
+    return pauseSpinnerAsync(fn);
+  };
+
   const pauseSpinnerAndLog = (logFn: (text: string) => void) => (text: string) => {
     if (persisted) {
       spinner?.stop();
@@ -84,29 +104,26 @@ export async function runScript(script: scripts.Script, scriptName: string) {
     spinner?.start();
   };
 
+  const start = Date.now();
   try {
     await script.run({
-      info: pauseSpinnerAndLog((text: string) => output.info(`    ${grey(text)}`)),
-      warn: pauseSpinnerAndLog((text: string) => output.warn(`    ${yellow(text)}`)),
+      info: pauseSpinnerAndLog((text: string) => output.info(grey(text))),
+      warn: pauseSpinnerAndLog((text: string) => output.warn(yellow(text))),
       progress,
-      async confirm(message) {
-        if (!process.stdout.isTTY) return false;
+      doInteractive,
+      confirm: (message) =>
+        doInteractive<boolean>(async () => {
+          const { answer } = await prompts({
+            type: 'confirm',
+            name: 'answer',
+            message,
+            initial: false,
+          });
 
-        spinner?.stopAndPersist();
-
-        const { answer } = await prompts({
-          type: 'confirm',
-          name: 'answer',
-          message,
-          initial: false,
-        });
-
-        spinner?.start();
-
-        return answer;
-      },
+          return answer as boolean;
+        }, false),
     });
-    spinner?.succeed();
+    spinner?.succeed(`Finished '${scriptName}' after ${ms(Date.now() - start)}`);
   } catch (error) {
     spinner?.fail();
     throw error;
@@ -167,6 +184,11 @@ if (!module.parent) {
       }
 
       output.error(red(error.message));
+
+      if (error.tips.length) {
+        output.info();
+        error.tips.forEach((tip) => output.info(grey(` - ${tip}`)));
+      }
     } else {
       output.error(error);
     }

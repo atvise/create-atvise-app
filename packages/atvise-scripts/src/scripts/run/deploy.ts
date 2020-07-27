@@ -106,15 +106,7 @@ export default async function runDeploy({
   warn,
   confirm = () => false,
 }: ScriptRunnerOptions) {
-  let config: Config = defaults;
-
-  try {
-    config = await load();
-  } catch (error) {
-    if (!(await confirm(`Failed to load config file, do you want to continue with defaults?`))) {
-      throw AppError.from(error, 'Failed to load config file');
-    }
-  }
+  const config = await load({ confirmFallback: confirm });
 
   process.env.ATSCM_CONFIG_PATH = join(__dirname, '../Atviseproject.js');
 
