@@ -13,7 +13,7 @@ const bannerComment = `/*
  */`;
 
 async function generate() {
-  const definitions = await compileFromFile('./atviserc.schema.json', {
+  const definitions = await compileFromFile('../../schemas/atviserc.schema.json', {
     bannerComment,
     style,
   });
