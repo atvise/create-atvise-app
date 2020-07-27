@@ -1,14 +1,21 @@
 import * as deployMetadata from './deploy';
 import * as prepareMetadata from './prepare';
+import * as initMetadata from './init';
+
+type HookReturnValue<R> = R | Promise<R>;
+type InteractiveHook<R> = () => HookReturnValue<R>;
+
+export type ConfirmHook = (message: string) => HookReturnValue<boolean>;
 
 export interface ScriptRunnerOptions {
   info: (message: string) => void;
   warn: (warning: string) => void;
   progress?: (status: string) => void;
-  confirm?: (message: string) => boolean | Promise<boolean>;
+  doInteractive: <R>(fn: InteractiveHook<R>, fallback: R) => HookReturnValue<R>;
+  confirm: ConfirmHook;
 }
 
-export type ScriptAction = (options: ScriptRunnerOptions) => void | Promise<void>;
+export type ScriptAction = (options: ScriptRunnerOptions) => HookReturnValue<void>;
 
 export interface Script {
   name: string;
@@ -31,4 +38,9 @@ export const deploy: Script = {
 export const prepare: Script = {
   ...prepareMetadata,
   run: lazyRun(() => import('./run/prepare')),
+};
+
+export const init: Script = {
+  ...initMetadata,
+  run: lazyRun(() => import('./run/init')),
 };

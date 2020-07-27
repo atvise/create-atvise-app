@@ -28,6 +28,7 @@
     "ora": "^4.0.4",
     "prompts": "^2.3.2",
     "readdirp": "^3.4.0",
+    "write-json-file": "3.2.0",
     "write-pkg": "^4.0.0"
   },
   "devDependencies": {
