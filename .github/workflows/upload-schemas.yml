@@ -1,0 +1,19 @@
+name: upload schemas
+
+on:
+  push:
+    branches:
+      - sync-schema
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Upload
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: schemas
+          destination_dir: schemas
+          commit_message: ${{ github.event.head_commit.message }} [ci skip]
