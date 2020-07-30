@@ -28,6 +28,12 @@ Currently, we only support **React apps**, but we're planning to add support for
 
 The whole project is split into different packages:
 
-| Name                                          | Description                                          |
-| :-------------------------------------------- | :--------------------------------------------------- |
-| [`atvise-scripts`](./packages/atvise-scripts) | The scripts used when interacting with atvise server |
+<!-- BEGIN packages -->
+<!-- This section is generated, do not edit it! -->
+
+| Name                                          | Description                                                          |
+| :-------------------------------------------- | :------------------------------------------------------------------- |
+| [atvise-scripts](./packages/atvise-scripts)   | The scripts used by create-atvise-app to interact with atvise server |
+| [@atvise/types-webmi](./packages/types-webmi) | Type definitions for webmi.js                                        |
+
+<!-- END packages -->

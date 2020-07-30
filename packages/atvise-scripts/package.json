@@ -1,8 +1,13 @@
 {
   "name": "atvise-scripts",
   "version": "0.0.0",
-  "description": "Scripts for create atvise app",
+  "description": "The scripts used by create-atvise-app to interact with atvise server",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukasHechenberger/create-atvise-app.git",
+    "directory": "packages/atvise-scripts"
+  },
   "author": "Lukas Hechenberger <npm@ls-age.com>",
   "main": "out/index.js",
   "bin": {

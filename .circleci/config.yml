@@ -69,6 +69,14 @@ jobs:
           name: Build packages
           command: pnpm run -r build
 
+  package-sync:
+    executor: atvise/node
+    steps:
+      - atvise/attach
+      - run:
+          name: Validate packages are in sync
+          command: npm run test
+
 workflows:
   version: 2
 
@@ -79,5 +87,8 @@ workflows:
           requires:
             - install
       - build:
+          requires:
+            - install
+      - package-sync:
           requires:
             - install
