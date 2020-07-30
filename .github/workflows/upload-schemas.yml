@@ -1,9 +1,10 @@
 name: upload schemas
 
-# on:
-#   push:
-#     branches:
-#       - master
+on:
+  push:
+    branches:
+      - master
+      - fix-schema-deployment
 
 jobs:
   deploy:
