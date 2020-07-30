@@ -1,0 +1,12 @@
+{
+  "name": "@atvise/types-webmi",
+  "version": "0.0.0-beta.0",
+  "private": true,
+  "description": "Type definitions for webmi.js",
+  "license": "MIT",
+  "author": "Lukas Hechenberger <npm@ls-age.com>",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "webmi.d.ts"
+}
