@@ -1,19 +1,21 @@
 name: upload schemas
 
-on:
-  push:
-    branches:
-      - master
+# on:
+#   push:
+#     branches:
+#       - master
 
 jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - name: Upload
-        uses: peaceiris/actions-gh-pages@v3.7.0-6
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: schemas
-          destination_dir: schemas
-          commit_message: ${{ github.event.head_commit.message }} [ci skip]
+          persist-credentials: false
+      - name: Upload
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: schemas
+          TARGET_FOLDER: schemas
