@@ -1,4 +1,4 @@
-/* eslint-disable no-var,vars-on-top */
+/* eslint-disable no-var,vars-on-top,no-shadow */
 
 declare namespace webMI {
   function callExtension(d, e);
@@ -62,7 +62,21 @@ declare namespace webMI.data {
 
   // var paused: boolean;
 
-  function addEventListener(name: string, callback: (e: {}) => void);
+  interface ClientVariables {
+    preferredlanguage: string;
+    right: string[];
+    username: string;
+  }
+
+  type DataEvents = {
+    clientvariableschange: ClientVariables;
+  };
+
+  function addEventListener<N extends keyof DataEvents>(
+    name: N,
+    callback: (e: DataEvents[N]) => void
+  );
+  function addEventListener<E = unknown>(name: string, callback: (e: E) => void);
 
   function removeEventListener();
 
@@ -696,7 +710,9 @@ declare namespace webMI.data {
   function readFilter<T>(filter: ReadFilterOptions, callback: ResultCallback<QueryResultObject<T>>);
 
   type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD';
-  type CustomRequestCallback<T> = (e: T, unfinishedRequest?: {}) => void;
+  // FIXME: Need better typing here...
+  type UnfinishedRequest = Record<string, unknown>;
+  type CustomRequestCallback<T> = (e: T, unfinishedRequest?: UnfinishedRequest) => void;
 
   /**
    * This function allows to send an arbitrary HTTP request to the server. Because of security
@@ -742,12 +758,12 @@ declare namespace webMI.data {
    * will then be returned immediately and not only when the request is finished. This e.g. allows
    * to monitor the "progress" status in case of a PUT upload.
    */
-  function customRequest<T = {}>(
+  function customRequest<T = unknown>(
     method: RequestMethod,
     subUrl: string,
     callback: CustomRequestCallback<T>
   );
-  function customRequest<T = {}>(
+  function customRequest<T = unknown>(
     method: RequestMethod,
     subUrl: string,
     additionalHttpHeader: string,
