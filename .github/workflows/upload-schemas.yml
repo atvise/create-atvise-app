@@ -20,3 +20,4 @@ jobs:
           BRANCH: gh-pages
           FOLDER: schemas
           TARGET_FOLDER: schemas
+          COMMIT_MESSAGE: 'chore: Update schemas [ci skip]'
