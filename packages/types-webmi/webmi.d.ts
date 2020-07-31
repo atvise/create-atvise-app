@@ -13,8 +13,8 @@ declare namespace webMI {
   function getMethodSupport();
   function getFilterSupport();
   function getState();
-  function getConfig(a);
-  function setConfig(a, b);
+  function getConfig(key: string): void;
+  function setConfig(key: string, value: any): void;
   function hasRight(a);
   function setExtension(a, b, c);
   function inList(a, b);

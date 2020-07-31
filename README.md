@@ -35,6 +35,7 @@ The whole project is split into different packages:
 | :------------------------------------------------ | :------------------------------------------------------------------- |
 | [atvise-scripts](./packages/atvise-scripts)       | The scripts used by create-atvise-app to interact with atvise server |
 | [@atvise/modular-webmi](./packages/modular-webmi) | Modular exports for webmi.js                                         |
+| [@atvise/webmi-react](./packages/react)           | React bindings for webmi                                             |
 | [@atvise/types-webmi](./packages/types-webmi)     | Type definitions for webmi.js                                        |
 
 <!-- END packages -->

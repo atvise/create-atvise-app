@@ -68,6 +68,10 @@ jobs:
       - run:
           name: Build packages
           command: pnpm run -r build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - packages/*/out
 
   package-sync:
     executor: atvise/node
@@ -83,12 +87,12 @@ workflows:
   default:
     jobs:
       - install
-      - lint:
-          requires:
-            - install
       - build:
           requires:
             - install
       - package-sync:
           requires:
             - install
+      - lint:
+          requires:
+            - build

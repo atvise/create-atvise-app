@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationDir": "out/types",
+    "emitDeclarationOnly": true,
+    "noEmitOnError": false,
+    "jsx": "react",
+    "esModuleInterop": true
+  }
+}
