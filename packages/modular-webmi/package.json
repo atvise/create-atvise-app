@@ -1,0 +1,30 @@
+{
+  "name": "@atvise/modular-webmi",
+  "version": "0.0.0",
+  "description": "Modular exports for webmi.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukasHechenberger/create-atvise-app.git",
+    "directory": "packages/modular-webmi"
+  },
+  "author": "Lukas Hechenberger <npm@ls-age.com>",
+  "main": "out/index.js",
+  "module": "out/index.mjs",
+  "scripts": {
+    "build": "rollup -c --environment NODE_ENV:production",
+    "dev": "rollup -cw",
+    "test": "ava",
+    "types": "tsc"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@atvise/types-webmi": "workspace:*",
+    "@rollup/plugin-node-resolve": "8.1.0",
+    "@rollup/plugin-typescript": "5.0.1",
+    "rollup": "2.18.1",
+    "tslib": "2.0.0",
+    "typescript": "3.9.5"
+  },
+  "types": "out/types/index.d.ts"
+}
