@@ -31,9 +31,10 @@ The whole project is split into different packages:
 <!-- BEGIN packages -->
 <!-- This section is generated, do not edit it! -->
 
-| Name                                          | Description                                                          |
-| :-------------------------------------------- | :------------------------------------------------------------------- |
-| [atvise-scripts](./packages/atvise-scripts)   | The scripts used by create-atvise-app to interact with atvise server |
-| [@atvise/types-webmi](./packages/types-webmi) | Type definitions for webmi.js                                        |
+| Name                                              | Description                                                          |
+| :------------------------------------------------ | :------------------------------------------------------------------- |
+| [atvise-scripts](./packages/atvise-scripts)       | The scripts used by create-atvise-app to interact with atvise server |
+| [@atvise/modular-webmi](./packages/modular-webmi) | Modular exports for webmi.js                                         |
+| [@atvise/types-webmi](./packages/types-webmi)     | Type definitions for webmi.js                                        |
 
 <!-- END packages -->
