@@ -12,17 +12,14 @@
   "main": "out/index.js",
   "module": "out/index.mjs",
   "scripts": {
-    "build": "run-p rollup types",
+    "build": "rollup -c --environment NODE_ENV:production",
     "dev": "rollup -cw",
-    "rollup": "rollup -c --environment NODE_ENV:production",
-    "test": "ava",
-    "types": "tsc"
+    "test": "ava"
   },
   "devDependencies": {
     "@atvise/types-webmi": "workspace:*",
     "@rollup/plugin-node-resolve": "8.1.0",
     "@rollup/plugin-typescript": "5.0.1",
-    "npm-run-all": "4.1.5",
     "rollup": "2.18.1",
     "tslib": "2.0.0",
     "typescript": "3.9.5"

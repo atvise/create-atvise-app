@@ -5,7 +5,14 @@ import typescript from '@rollup/plugin-typescript';
 export default {
   input: ['./src/index.ts'],
   external: [...builtinModules],
-  plugins: [resolve(), typescript()],
+  plugins: [
+    resolve(),
+    typescript({
+      declaration: true,
+      declarationDir: 'out/types/',
+      rootDir: 'src/',
+    }),
+  ],
   output: [
     {
       dir: './out',
