@@ -85,6 +85,7 @@ importers:
       '@atvise/types-webmi': 'link:../types-webmi'
       '@rollup/plugin-node-resolve': 8.1.0_rollup@2.18.1
       '@rollup/plugin-typescript': 5.0.1_942df351096bedf8d6dcfc26c8d165a0
+      npm-run-all: 4.1.5
       rollup: 2.18.1
       tslib: 2.0.0
       typescript: 3.9.5
@@ -92,6 +93,7 @@ importers:
       '@atvise/types-webmi': 'workspace:*'
       '@rollup/plugin-node-resolve': 8.1.0
       '@rollup/plugin-typescript': 5.0.1
+      npm-run-all: 4.1.5
       rollup: 2.18.1
       tslib: 2.0.0
       typescript: 3.9.5
