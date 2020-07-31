@@ -14,10 +14,8 @@
   "scripts": {
     "build": "rollup -c --environment NODE_ENV:production",
     "dev": "rollup -cw",
-    "test": "ava",
-    "types": "tsc"
+    "test": "ava"
   },
-  "dependencies": {},
   "devDependencies": {
     "@atvise/types-webmi": "workspace:*",
     "@rollup/plugin-node-resolve": "8.1.0",

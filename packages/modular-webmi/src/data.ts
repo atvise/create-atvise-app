@@ -42,10 +42,7 @@ export function call<V = Record<string, unknown>>(name: string, args: Record<str
 
 type SubscriptionState<V> = { error: Error } | { data: VariableValue<V> };
 
-export function subscribe<V>(
-  { address }: { address: string },
-  onResult: (data: SubscriptionState<V>) => void
-) {
+export function subscribe<V>(address: string, onResult: (data: SubscriptionState<V>) => void) {
   const subscription = webmiData.subscribe(address, (result) =>
     onResult(isErrorResult(result) ? { error: createDataError(result) } : { data: result })
   );
