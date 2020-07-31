@@ -1,7 +1,6 @@
 {
   "name": "@atvise/types-webmi",
   "version": "0.0.0",
-  "private": true,
   "description": "Type definitions for webmi.js",
   "license": "MIT",
   "repository": {
