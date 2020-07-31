@@ -83,12 +83,12 @@ workflows:
   default:
     jobs:
       - install
-      - lint:
-          requires:
-            - install
       - build:
           requires:
             - install
       - package-sync:
           requires:
             - install
+      - lint:
+          requires:
+            - build
