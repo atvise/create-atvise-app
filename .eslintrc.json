@@ -5,7 +5,9 @@
   },
   "rules": {
     "compat/compat": "off",
-    "// For optional chaining": "off",
+    // For tripple-slash-references:
+    "spaced-comment": ["error", "always", { "markers": ["/"] }],
+    // For optional chaining:
     "no-unused-expressions": "off"
   },
   "overrides": [
@@ -20,7 +22,9 @@
       ],
       "rules": {
         "compat/compat": "off",
-        "// For optional chaining": "off",
+        // For tripple-slash-references:
+        "spaced-comment": ["error", "always", { "markers": ["/"] }],
+        // For optional chaining:
         "no-unused-expressions": "off",
         "consistent-return": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off"

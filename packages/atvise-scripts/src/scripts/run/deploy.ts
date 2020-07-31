@@ -5,8 +5,7 @@ import { DataType, NodeClass } from 'node-opcua';
 import setupDebug from 'debug';
 import type * as Atscm from 'atscm';
 import type * as AtscmApi from 'atscm/api';
-import { Config, load, defaults } from '../../lib/config';
-import { AppError } from '../../lib/errors';
+import { load } from '../../lib/config';
 import type { ScriptRunnerOptions } from '..';
 
 const debug = setupDebug('deploy');

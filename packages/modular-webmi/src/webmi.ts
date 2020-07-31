@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+
 /// <reference types="@atvise/types-webmi" />
 
 export function getWebMI() {
