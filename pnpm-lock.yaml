@@ -80,10 +80,6 @@ importers:
       typescript: 3.9.5
       write-json-file: 3.2.0
       write-pkg: ^4.0.0
-  packages/cra-template:
-    specifiers: {}
-  packages/create-atvise-app:
-    specifiers: {}
   packages/modular-webmi:
     devDependencies:
       '@atvise/types-webmi': 'link:../types-webmi'
@@ -93,27 +89,9 @@ importers:
       tslib: 2.0.0
       typescript: 3.9.5
     specifiers:
-      '@atvise/types-webmi': 'file:../types-webmi'
+      '@atvise/types-webmi': 'workspace:*'
       '@rollup/plugin-node-resolve': 8.1.0
       '@rollup/plugin-typescript': 5.0.1
-      rollup: 2.18.1
-      tslib: 2.0.0
-      typescript: 3.9.5
-  packages/react:
-    dependencies:
-      '@atvise/modular-webmi': 'link:../modular-webmi'
-    devDependencies:
-      '@rollup/plugin-node-resolve': 8.1.0_rollup@2.18.1
-      '@rollup/plugin-typescript': 5.0.1_942df351096bedf8d6dcfc26c8d165a0
-      '@types/react': 16.9.41
-      rollup: 2.18.1
-      tslib: 2.0.0
-      typescript: 3.9.5
-    specifiers:
-      '@atvise/modular-webmi': 'file:../modular-webmi'
-      '@rollup/plugin-node-resolve': 8.1.0
-      '@rollup/plugin-typescript': 5.0.1
-      '@types/react': 16.9.41
       rollup: 2.18.1
       tslib: 2.0.0
       typescript: 3.9.5
@@ -1380,17 +1358,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-lXXAa8c8ASoA61Tj9H5E5V2mRUTvNZ/dpJ5KxghI+O5geWMHt73NLZ9kEBBDK7zUUfMsMY3ZH4Sqeqh3SjSyfg==
-  /@types/prop-types/15.7.3:
-    dev: true
-    resolution:
-      integrity: sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
-  /@types/react/16.9.41:
-    dependencies:
-      '@types/prop-types': 15.7.3
-      csstype: 2.6.10
-    dev: true
-    resolution:
-      integrity: sha512-6cFei7F7L4wwuM+IND/Q2cV1koQUvJ8iSV+Gwn0c3kvABZ691g7sp3hfEQHOUBJtccl1gPi+EyNjMIl9nGA0ug==
   /@types/resolve/0.0.8:
     dependencies:
       '@types/node': 14.0.14
@@ -2824,10 +2791,6 @@ packages:
       node: '>= 8'
     resolution:
       integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==
-  /csstype/2.6.10:
-    dev: true
-    resolution:
-      integrity: sha512-D34BqZU4cIlMCY93rZHbrq9pjTAQJ3U8S8rfBqjwHxkGPThWFjzZDQpgMJY0QViLxth6ZKYiwFBo14RdN44U/w==
   /ctype/0.5.2:
     dev: false
     engines:
