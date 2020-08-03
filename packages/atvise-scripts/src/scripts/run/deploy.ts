@@ -78,23 +78,29 @@ export async function deployFile(
   { warn }: { warn: ScriptRunnerOptions['warn'] }
 ) {
   const nodeId = resourceId(entry.path);
-
-  const value = await fsp.readFile(entry.fullPath);
-
   const typeDefinition = getTypeDefinition(entry.path);
-  await atscmApi.createNode(nodeId, {
+  const value = {
+    dataType: DataType.ByteString,
+    value: await fsp.readFile(entry.fullPath),
+  };
+
+  const result = await atscmApi.createNode(nodeId, {
     name: entry.basename,
     typeDefinition,
-    value: {
-      dataType: DataType.ByteString,
-      value,
-    },
+    value,
   });
+  const [{ value: createdNode }] = result.outputArguments[3].value;
+
+  if (!createdNode) {
+    debug(`'${nodeId}' already exists, overwriting...`);
+    await atscmApi.writeNode(nodeId, value);
+  }
 
   if (typeDefinition === ResourceType.Svg) {
     warn(`Attention: There are SVGs in your build output.
 
-Please remove the reference from '${nodeId}' to '${ResourceType.Svg}.Translate' in atvise builder`);
+Please remove the reference from '${nodeId}' to '${ResourceType.Svg}.Translate' in atvise builder.
+See https://github.com/LukasHechenberger/create-atvise-app/issues/14`);
   }
 
   debug(`Deployed '${nodeId}'`);
@@ -104,6 +110,7 @@ export default async function runDeploy({
   progress,
   warn,
   confirm = () => false,
+  info,
 }: ScriptRunnerOptions) {
   const config = await load({ confirmFallback: confirm });
 
@@ -131,4 +138,7 @@ export default async function runDeploy({
   }
 
   progress?.(`Uploaded ${count} files 🎉`);
+  info(`
+  You can view you deployment at http://${config.host}:${config.port.http}
+`);
 }
