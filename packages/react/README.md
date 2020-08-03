@@ -25,8 +25,12 @@ _@atvise/webmi-react_ exports hooks that can be used in functional React compone
 ```jsx
 import { useSubscription } from '@atvise/webmi-react';
 
-function MyLabel() {
-  const { loading, data, error } = useSubscription('AGENT.OBJECTS.test');
+/**
+ * @example
+ * <MyLabel address="AGENT.OBJECTS.test" />
+ */
+function MyLabel(props) {
+  const { loading, data, error } = useSubscription(props.address);
 
   if (loading) return <i>loading...</i>;
   if (error) return <i>An error ocurred</i>;

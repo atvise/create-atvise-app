@@ -65,9 +65,34 @@ This will open your browser and show a fully functional React app, displaying th
   <img alt="React app" style="max-width: 500px" src="./docs/assets/react-app.png" />
 </center>
 
+## Development
+
+This project makes very little assumptions on how you will develop your React app: You can use almost all UI libraries, routers, internationalization frameworks etc. that work with react.
+
+Additionally, the [`@atvise/webmi-react`](./packages/webmi-react) package provides data bindings between your react app and atvise server. For example, you can use the `useSubscription` hook to display a variable's value:
+
+```jsx
+import { useSubscription } from '@atvise/webmi-react';
+
+/**
+ * @example
+ * <MyLabel address="AGENT.OBJECTS.test" />
+ */
+function MyLabel(props) {
+  const { loading, data, error } = useSubscription(props.address);
+
+  if (loading) return <i>loading...</i>;
+  if (error) return <i>An error ocurred</i>;
+
+  return <p>AGENT.OBJECTS.test currently is: {data.value}</p>;
+}
+```
+
+Check out the [`@atvise/webmi-react`](./packages/webmi-react) package for details.
+
 ## Deployment
 
-You can deploy it to your atvise server by running `npm run deploy`.
+You can deploy it to your atvise server by running `npm run deploy`. This command will create a new production build (by running `npm run build`) and upload it to your atvise server's project resources. Afterwards, you should see your react app when you open your atvise server in the browser (usually available at [localhost:8084](http://localhost:8084)).
 
 ## What's included?
 
