@@ -4,17 +4,68 @@ Tools to integrate atvise in your modern web app project.
 
 > **Note:** This project is currently under development.
 
-## Quick Overview
+## Overview
 
-_create-atvise-app_ sets up a modern development environment for your atvise web app in no time. It's inspired by [_create-react-app_](https://create-react-app.dev).
+_create-atvise-app_ sets up a modern React development environment for your atvise project in no time. It's built upon facebook's [_create-react-app_](https://create-react-app.dev).
+
+## Quickstart
+
+With [node.js](https://nodejs.org/en/) (version 12 or newer), run _create-react-app_ to create a new project:
 
 ```bash
-npx create-atvise-app my-app
+# Create the app with create-react-app
+npx create-react-app --template @atvise/cra-template --scripts-version @atvise/react-scripts my-app
 cd my-app
+```
+
+At this point you have a fully set up atvise/React project - let's test it!
+
+First, you have to **start an atvise server** in the `atserver` directory. The easiest way to do so is via the atvise Project Console.
+
+- Create a new project
+
+  <center>
+    <img alt="Start atvise server" style="max-width: 500px" src="./docs/assets/atmonitor-add-project.png" />
+  </center>
+
+- Select the `atserver` directory as it's path
+- Click _OK_"\* to create it and
+- Start atvise server via the ▶️-Button
+
+  <center>
+    <img alt="Start atvise server" style="max-width: 300px" src="./docs/assets/atmonitor-started.png" />
+  </center>
+
+<details>
+<summary>You can also start atvise server from the command line</summary>
+
+**On Windows**
+
+```
+"C:\Program Files\atvise\atserver.exe" /proj=%cd% atserver/nodes.db /boot
+```
+
+**On Linux**
+
+```
+atserver --proj $(pwd) --boot
+```
+
+</details>
+
+Now we're ready to start the React development server:
+
+```
 npm start
 ```
 
-This will start a React app locally and open it the browser.
+This will open your browser and show a fully functional React app, displaying the value of an atvise variable:
+
+<center>
+  <img alt="React app" style="max-width: 500px" src="./docs/assets/react-app.png" />
+</center>
+
+## Deployment
 
 You can deploy it to your atvise server by running `npm run deploy`.
 
