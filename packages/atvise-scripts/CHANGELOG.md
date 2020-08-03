@@ -1,5 +1,10 @@
-<a name="0.1.0"></a>
-# 0.1.0 (2020-08-03)
+<a name="0.2.0"></a>
+# 0.2.0 (2020-08-03)
+
+
+### Bug Fixes
+
+* **atvise-scripts:** Override previous deployments ([#19](https://github.com/LukasHechenberger/create-atvise-app/issues/19)) ([e4cb54b](https://github.com/LukasHechenberger/create-atvise-app/commits/e4cb54b))
 
 
 ### Features
