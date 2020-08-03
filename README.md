@@ -24,17 +24,11 @@ First, you have to **start an atvise server** in the `atserver` directory. The e
 
 - Create a new project
 
-  <center>
-    <img alt="Start atvise server" style="max-width: 500px" src="./docs/assets/atmonitor-add-project.png" />
-  </center>
+  ![Start atvise server](./docs/assets/atmonitor-add-project.png)
 
 - Select the `atserver` directory as it's path
 - Click _OK_ to create it and
 - Start atvise server via the ▶️-Button
-
-  <center>
-    <img alt="Start atvise server" style="max-width: 300px" src="./docs/assets/atmonitor-started.png" />
-  </center>
 
 <details>
 <summary>You can also start atvise server from the command line</summary>
@@ -52,6 +46,8 @@ atserver --proj $(pwd) --boot
 ```
 
 </details>
+  ![Start atvise server](./docs/assets/atmonitor-started.png)
+
 
 Now we're ready to start the React development server:
 
@@ -61,9 +57,7 @@ npm start
 
 This will open your browser and show a fully functional React app, displaying the value of an atvise variable:
 
-<center>
-  <img alt="React app" style="max-width: 500px" src="./docs/assets/react-app.png" />
-</center>
+![React app](./docs/assets/react-app.png)
 
 ## Development
 
