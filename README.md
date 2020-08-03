@@ -29,7 +29,7 @@ First, you have to **start an atvise server** in the `atserver` directory. The e
   </center>
 
 - Select the `atserver` directory as it's path
-- Click _OK_"\* to create it and
+- Click _OK_ to create it and
 - Start atvise server via the ▶️-Button
 
   <center>
