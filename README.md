@@ -1,6 +1,6 @@
 # create-atvise-app
 
-Tools to integrate atvise in your modern web app project.
+Tools to integrate atvise into your modern web app project.
 
 > **Note:** This project is currently under development.
 
