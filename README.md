@@ -30,24 +30,24 @@ First, you have to **start an atvise server** in the `atserver` directory. The e
 - Click _OK_ to create it and
 - Start atvise server via the ▶️-Button
 
-<details>
-<summary>You can also start atvise server from the command line</summary>
-
-**On Windows**
-
-```
-"C:\Program Files\atvise\atserver.exe" /proj=%cd% atserver/nodes.db /boot
-```
-
-**On Linux**
-
-```
-atserver --proj $(pwd) --boot
-```
-
-</details>
   ![Start atvise server](./docs/assets/atmonitor-started.png)
 
+> <details>
+> <summary>You can also start atvise server from the command line</summary>
+>
+> **On Windows**
+>
+> ```
+> "C:\Program Files\atvise\atserver.exe" /proj=%cd% atserver/nodes.db /boot
+> ```
+>
+> **On Linux**
+>
+> ```
+> atserver --proj $(pwd) --boot
+> ```
+>
+> </details>
 
 Now we're ready to start the React development server:
 
