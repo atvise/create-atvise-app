@@ -19,3 +19,14 @@ read<number>('AGENT.OBJECTS.test')
   .then(({ value }) => console.log('Test, trippled:', value * 3))
   .catch((error) => console.error('Cannot read test', error));
 ```
+
+<!-- BEGIN footer -->
+<!-- This section is generated, do not edit it! -->
+
+---
+
+This package is part of the [create-atvise-app](https://github.com/LukasHechenberger/create-atvise-app#readme) project.
+
+Refer to [it's documentation](https://github.com/LukasHechenberger/create-atvise-app#readme) for more information.
+
+<!-- END footer -->

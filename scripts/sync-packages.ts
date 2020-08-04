@@ -1,3 +1,4 @@
+import { join } from 'path';
 import findPackages, { Project } from '@pnpm/find-workspace-packages';
 import Template from '@ls-age/update-section';
 import workspacePkg from '../package.json';
@@ -21,18 +22,28 @@ export async function syncMetadata(pkg: Project) {
   await pkg.writeProjectManifest(manifest);
 }
 
+const packageFooter = `
+---
+
+This package is part of the [create-atvise-app](${workspacePkg.homepage}) project.
+
+Refer to [it's documentation](${workspacePkg.homepage}) for more information.
+`;
+
 export async function syncPackages(root = '.') {
   const packages: Project[] = [];
+  const rootReadme = new Template('README.md');
 
   for (const pkg of await findPackages(root, {})) {
     if (pkg.dir !== root) {
       await syncMetadata(pkg);
       packages.push(pkg);
+
+      await Template.updateSection(join(pkg.dir, 'README.md'), 'footer', packageFooter);
     }
   }
 
-  Template.updateSection(
-    'README.md',
+  await rootReadme.updateSection(
     'packages',
     table(
       ['Name', 'Description'],
@@ -42,6 +53,8 @@ export async function syncPackages(root = '.') {
       ])
     )
   );
+
+  await rootReadme.save();
 }
 
 if (!module.parent) {

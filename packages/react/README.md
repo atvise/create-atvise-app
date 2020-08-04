@@ -49,3 +49,14 @@ function MyLabel(props) {
 - [ ] `useClientVariables()` - Returns logged in user, selected language, ...
 - [ ] `useFilterSubscription()` - Subscription hook with filters (using _webMI.data.subscribeFilters_)
 - [ ] `useAlarms` - A hook that returns alarms, so it can be used for an alarm list / table
+
+<!-- BEGIN footer -->
+<!-- This section is generated, do not edit it! -->
+
+---
+
+This package is part of the [create-atvise-app](https://github.com/LukasHechenberger/create-atvise-app#readme) project.
+
+Refer to [it's documentation](https://github.com/LukasHechenberger/create-atvise-app#readme) for more information.
+
+<!-- END footer -->

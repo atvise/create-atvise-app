@@ -20,3 +20,14 @@ In your script, that has access to `window.webMI` add a [Tripple-Slash-Directive
 // Fails, because `isPaused()` returns a boolean
 const test = webMI.data.isPaused() + 3;
 ```
+
+<!-- BEGIN footer -->
+<!-- This section is generated, do not edit it! -->
+
+---
+
+This package is part of the [create-atvise-app](https://github.com/LukasHechenberger/create-atvise-app#readme) project.
+
+Refer to [it's documentation](https://github.com/LukasHechenberger/create-atvise-app#readme) for more information.
+
+<!-- END footer -->
