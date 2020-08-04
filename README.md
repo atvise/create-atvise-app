@@ -10,15 +10,53 @@ _create-atvise-app_ sets up a modern React development environment for your atvi
 
 ## Quickstart
 
-With [node.js](https://nodejs.org/en/) (version 12 or newer), run _create-react-app_ to create a new project:
+First, make sure you have [node.js](https://nodejs.org/en/) (version 12 or newer) installed.
+
+> <details>
+> <summary>How?</summary>
+>
+> Run `node --version` on the command line.
+>
+> ```sh
+> node --version
+> v12.18.2 # The node.js version installed
+> ```
+>
+> If this command fails or prints a version number lower than _12_ download and install the latest LTS (long term support) version from [nodejs.org](https://nodejs.org/en/).
+>
+> </details>
+
+Next, run _create-react-app_ to create a new project:
+
+> Don't worry about installing _create-react-app_, `npx` (npm package runner, shipped with node.js) does this for you 😀
 
 ```bash
-# Create the app with create-react-app
-npx create-react-app --template @atvise/cra-template --scripts-version @atvise/react-scripts my-app
+npx create-react-app \
+  # Use the atvise template
+  --template @atvise/cra-template \
+  # Use an adapted version of react-scripts
+  --scripts-version @atvise/react-scripts \
+  # The folder to create the app in
+  my-app
+
 cd my-app
 ```
 
-At this point you have a fully set up atvise/React project - let's test it!
+Running `create-react-app` will generate the initial project structure and install all the tools and resources required to build and run your app. These are the most important files:
+
+```sh
+my-app
+├── README.md               # Contains information on how to run the app
+├── node_modules            # Contains the app's dependencies
+├── package.json            # The app's manifest file
+├── public                  # Put your static files in here, e.g. images
+│   └── index.html          # The file you see when you open your browser
+└── src                     # Contains your project's source files
+    ├── App.js              # The App component (React)
+    └── index.js            # Renders the 'App' component
+```
+
+All in all, we have a fully functional React/atvise app at this point, no more configuration required. Let's test it!
 
 First, you have to **start an atvise server** in the `atserver` directory. The easiest way to do so is via the atvise Project Console.
 
@@ -87,6 +125,24 @@ Check out the [`@atvise/webmi-react`](./packages/webmi-react) package for detail
 ## Deployment
 
 You can deploy it to your atvise server by running `npm run deploy`. This command will create a new production build (by running `npm run build`) and upload it to your atvise server's project resources. Afterwards, you should see your react app when you open your atvise server in the browser (usually available at [localhost:8084](http://localhost:8084)).
+
+You can view the deployed files in atvise builder by navigating to the project library's resources:
+
+![Deployment in atvise builder](./docs/assets/atbuilder-deployed-resources.png)
+
+## Limitations
+
+Using React instead of regular atvise displays and components comes with some drawbacks, too. These are the most important:
+
+- **Regular atvise displays cannot be used** alongside the react app.
+
+  In addition the `webMI.display` API does not work as expected.
+
+- **The graphics functions won't work**
+
+  Don't use `webMI.translate` or `webMI.gfx`. You can do almost everything in CSS instead.
+
+> This project is currently under development so there may be additional incompatibilities we don't know about yet - Feel free to [create an issue](https://github.com/LukasHechenberger/create-atvise-app/issues/new) if you find one.
 
 ## What's included?
 
