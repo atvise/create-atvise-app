@@ -26,3 +26,14 @@ Options:
 **`atvise-scripts deploy`**
 
 - [ ] Currenty does not delete _Translate_ references on deployed svg files (See [create-atvise-app#14](https://github.com/LukasHechenberger/create-atvise-app/issues/14))
+
+<!-- BEGIN footer -->
+<!-- This section is generated, do not edit it! -->
+
+---
+
+This package is part of the [create-atvise-app](https://github.com/LukasHechenberger/create-atvise-app#readme) project.
+
+Refer to [it's documentation](https://github.com/LukasHechenberger/create-atvise-app#readme) for more information.
+
+<!-- END footer -->
