@@ -49,6 +49,7 @@ my-app
 ├── README.md               # Contains information on how to run the app
 ├── node_modules            # Contains the app's dependencies
 ├── package.json            # The app's manifest file
+├── .atviserc.json          # Project configuration
 ├── public                  # Put your static files in here, e.g. images
 │   └── index.html          # The file you see when you open your browser
 └── src                     # Contains your project's source files
@@ -66,9 +67,11 @@ First, you have to **start an atvise server** in the `atserver` directory. The e
 
 - Select the `atserver` directory as it's path
 - Click _OK_ to create it and
-- Start atvise server via the ▶️-Button
+- Make sure that the ports _4844_ and _8084_ are selected and start atvise server via the ▶️-Button
 
   ![Start atvise server](./docs/assets/atmonitor-started.png)
+
+  Jump to [Configuration](#configuration) if you need to use other ports.
 
 > <details>
 > <summary>You can also start atvise server from the command line</summary>
@@ -129,6 +132,16 @@ You can deploy it to your atvise server by running `npm run deploy`. This comman
 You can view the deployed files in atvise builder by navigating to the project library's resources:
 
 ![Deployment in atvise builder](./docs/assets/atbuilder-deployed-resources.png)
+
+## Configuration
+
+You can adjust some project settings inside the `.atviserc.json` file. It contains a reference to it's schema, so autocompletion should be available in modern IDEs. These are the most important properties:
+
+| Key         | Description                          | Default       |
+| :---------- | :----------------------------------- | ------------- |
+| `host`      | The host atvise server is running at | `"localhost"` |
+| `port.opc`  | atvise server's OPC-UA port          | `4840`        |
+| `port.http` | atvise server's HTTP port            | `80`          |
 
 ## Limitations
 
