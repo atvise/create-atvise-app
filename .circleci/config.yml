@@ -5,20 +5,37 @@ orbs:
     executors:
       node:
         docker:
-          - image: circleci/node:12.18.2
+          - image: lsage/pnpm-circleci-node:12
 
     commands:
-      install-pnpm:
-        steps:
-          - run:
-              name: Install pnpm
-              command: sudo npm i -g pnpm@^5.4.0
       attach:
         steps:
           - checkout:
               path: ~/project
           - attach_workspace:
               at: ~/project
+      git-login:
+        steps:
+          - run:
+              name: Setting up git user
+              command: |
+                git config --global user.email 5802656+LukasHechenberger@users.noreply.github.com
+                git config --global user.name ls-age
+      npm-login:
+        steps:
+          - run:
+              name: Logging in to npm
+              command: echo "$NPM_TOKEN" > ~/.npmrc
+      release:
+        parameters:
+          package:
+            type: string
+          dir:
+            type: string
+        steps:
+          - run:
+              name: Release <<parameters.package>> if needed
+              command: npx @ls-age/bump-version release --dir <<parameters.dir>> --package-manager pnpm --gh-token $GH_TOKEN
 
 jobs:
   install:
@@ -29,7 +46,6 @@ jobs:
           keys:
             - v1-deps-{{ checksum "pnpm-lock.yaml" }}
             - v1-deps
-      - atvise/install-pnpm
       - run:
           name: Install dependencies
           command: pnpm install --frozen-lockfile
@@ -64,7 +80,6 @@ jobs:
     executor: atvise/node
     steps:
       - atvise/attach
-      - atvise/install-pnpm
       - run:
           name: Build packages
           command: pnpm run -r build
@@ -81,6 +96,16 @@ jobs:
           name: Validate packages are in sync
           command: npm run test
 
+  release:
+    executor: atvise/node
+    steps:
+      - atvise/attach
+      - atvise/git-login
+      - atvise/npm-login
+      - atvise/release:
+          package: atvise-scripts
+          dir: packages/atvise-scripts
+
 workflows:
   version: 2
 
@@ -96,3 +121,8 @@ workflows:
       - lint:
           requires:
             - build
+      - release:
+          requires:
+            - build
+            - package-sync
+            - lint
