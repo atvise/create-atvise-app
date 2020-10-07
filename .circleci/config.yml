@@ -5,14 +5,9 @@ orbs:
     executors:
       node:
         docker:
-          - image: circleci/node:12.18.2
+          - image: lsage/pnpm-circleci-node:12
 
     commands:
-      install-pnpm:
-        steps:
-          - run:
-              name: Install pnpm
-              command: sudo npm i -g pnpm@^5.4.0
       attach:
         steps:
           - checkout:
@@ -29,7 +24,6 @@ jobs:
           keys:
             - v1-deps-{{ checksum "pnpm-lock.yaml" }}
             - v1-deps
-      - atvise/install-pnpm
       - run:
           name: Install dependencies
           command: pnpm install --frozen-lockfile
@@ -64,7 +58,6 @@ jobs:
     executor: atvise/node
     steps:
       - atvise/attach
-      - atvise/install-pnpm
       - run:
           name: Build packages
           command: pnpm run -r build
