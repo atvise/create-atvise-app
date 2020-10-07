@@ -7,6 +7,7 @@ import type * as Atscm from 'atscm';
 import type * as AtscmApi from 'atscm/api';
 import { load } from '../../lib/config';
 import type { ScriptRunnerOptions } from '..';
+import { readJson } from '../../lib/fs';
 
 const debug = setupDebug('deploy');
 
@@ -14,7 +15,7 @@ let atscm: typeof Atscm;
 let atscmApi: typeof AtscmApi;
 
 export const resourceId = (path: string) =>
-  new atscm.NodeId(`ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/${path}`);
+  new atscm.NodeId(join('ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES', path));
 
 export class PathCreator {
   created = new Set<string>();
@@ -75,9 +76,10 @@ export function getTypeDefinition(path: string) {
 
 export async function deployFile(
   entry: readdirp.EntryInfo,
+  remotePath: string,
   { warn }: { warn: ScriptRunnerOptions['warn'] }
 ) {
-  const nodeId = resourceId(entry.path);
+  const nodeId = resourceId(remotePath);
   const typeDefinition = getTypeDefinition(entry.path);
   const value = {
     dataType: DataType.ByteString,
@@ -123,6 +125,15 @@ export default async function runDeploy({
   atscm = await import('atscm');
   atscmApi = await import('atscm/api');
 
+  // Resolve remote base path from 'homepage' field in package.json
+  const pkg = await readJson('./package.json');
+  let baseURL = new URL(`http://${config.host}:${config.port.http}`);
+  if (pkg.homepage) {
+    baseURL = new URL(pkg.homepage, baseURL);
+    info(`Deploying to resource directory '.${baseURL.pathname}'`);
+  }
+  const base = baseURL.pathname;
+
   // Find and deploy files
   const paths = new PathCreator();
 
@@ -130,8 +141,10 @@ export default async function runDeploy({
 
   for (const root of config.deploy.outPath) {
     for await (const entry of readdirp(root)) {
-      await paths.ensurePath(entry.path);
-      await deployFile(entry, { warn });
+      const remotePath = join(base, entry.path);
+
+      await paths.ensurePath(remotePath);
+      await deployFile(entry, remotePath, { warn });
 
       progress?.(`Uploaded ${++count} files`);
     }
@@ -139,6 +152,6 @@ export default async function runDeploy({
 
   progress?.(`Uploaded ${count} files 🎉`);
   info(`
-  You can view you deployment at http://${config.host}:${config.port.http}
+  You can view you deployment at ${baseURL}
 `);
 }
