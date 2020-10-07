@@ -1,10 +1,27 @@
-<a name="0.2.0"></a>
-# 0.2.0 (2020-08-03)
+<a name="0.3.0"></a>
+# 0.3.0 (2020-10-07)
+
+
+### Features
+
+* **atvise-scripts:** Deploy to sub-path if specified in homage field ([#23](https://github.com/LukasHechenberger/create-atvise-app/issues/23)) ([6734938](https://github.com/LukasHechenberger/create-atvise-app/commits/6734938))
+
+
+
+
+<a name="atvise-scripts-v0.2.0"></a>
+# atvise-scripts-v0.2.0 (2020-08-03)
 
 
 ### Bug Fixes
 
 * **atvise-scripts:** Override previous deployments ([#19](https://github.com/LukasHechenberger/create-atvise-app/issues/19)) ([e4cb54b](https://github.com/LukasHechenberger/create-atvise-app/commits/e4cb54b))
+
+
+
+
+<a name="atvise-scripts-v0.1.0"></a>
+# atvise-scripts-v0.1.0 (2020-08-03)
 
 
 ### Features
