@@ -14,7 +14,7 @@
     "url": "https://github.com/LukasHechenberger/create-atvise-app/issues"
   },
   "scripts": {
-    "format": "prettier --ignore-path .gitignore . \"!**/CHANGELOG.md\"",
+    "format": "prettier --ignore-path .gitignore . \"!**/{pnpm-lock.yaml,CHANGELOG.md}\"",
     "lint": "eslint --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx .",
     "sync-packages": "sucrase-node ./scripts/sync-packages.ts && npm run -s format -- --write",
     "test": "npm run -s sync-packages && git diff --exit-code"
