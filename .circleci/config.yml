@@ -14,6 +14,28 @@ orbs:
               path: ~/project
           - attach_workspace:
               at: ~/project
+      git-login:
+        steps:
+          - run:
+              name: Setting up git user
+              command: |
+                git config --global user.email 5802656+LukasHechenberger@users.noreply.github.com
+                git config --global user.name ls-age
+      npm-login:
+        steps:
+          - run:
+              name: Logging in to npm
+              command: echo "$NPM_TOKEN" > ~/.npmrc
+      release:
+        parameters:
+          package:
+            type: string
+          dir:
+            type: string
+        steps:
+          - run:
+              name: Release <<parameters.package>> if needed
+              command: npx @ls-age/bump-version release --dir <<parameters.dir>> --package-manager pnpm --gh-token $GH_TOKEN
 
 jobs:
   install:
@@ -74,6 +96,16 @@ jobs:
           name: Validate packages are in sync
           command: npm run test
 
+  release:
+    executor: atvise/node
+    steps:
+      - atvise/attach
+      - atvise/git-login
+      - atvise/npm-login
+      - atvise/release:
+          package: atvise-scripts
+          dir: packages/atvise-scripts
+
 workflows:
   version: 2
 
@@ -89,3 +121,8 @@ workflows:
       - lint:
           requires:
             - build
+      - release:
+          requires:
+            - build
+            - package-sync
+            - lint
