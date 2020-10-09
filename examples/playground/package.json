@@ -64,8 +64,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "proxy": "http://10.211.55.3:8090"

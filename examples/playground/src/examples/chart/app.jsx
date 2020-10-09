@@ -20,7 +20,7 @@ function Chart() {
   const double1 = useCollectedSamples('AGENT.OBJECTS.SimulatedData.double_1');
   const double2 = useCollectedSamples('AGENT.OBJECTS.SimulatedData.double_2');
 
-  if (double1.error || double2.error) return <i>An error ocurred: {error.message}</i>;
+  if (double1.error || double2.error) return <i>An error ocurred: {(double1.error || double2.error).message}</i>;
   if (double1.data.length < 2 || double2.data.length < 2) return <i>loading...</i>;
 
   return (
