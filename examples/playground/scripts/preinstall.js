@@ -8,6 +8,7 @@ async function preinstall() {
   await fsp.stat(file).catch(async (error) => {
     if (error.code === 'ENOENT') {
       await fsp.writeFile(file, '', { encoding: 'utf8' });
+      console.log(`Created file '${file}'`);
     } else {
       throw error;
     }
