@@ -1,4 +1,5 @@
-import { rollup, RollupCache, OutputChunk } from 'rollup';
+import { rollup } from 'rollup/dist/rollup.browser';
+import type { rollup as rollupFn, RollupCache, OutputChunk } from 'rollup';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import type { ReplFile } from '../components/repl';
@@ -33,16 +34,12 @@ export default class Bundler {
     abort();
 
     const getSourceFile = (id: string) => files.find((f) => `./${f.name}` === id);
-    console.log({ files });
 
-    // await new Promise((resolve) => setTimeout(resolve, 500));
-
-    const bundle = await rollup({
+    const bundle = await (rollup as typeof rollupFn)({
       input: inputId,
       cache: this.rollupCache,
       onwarn: (warning) => {
         console.warn(warning);
-        // warnings.push(warning),
       },
       plugins: [
         {
