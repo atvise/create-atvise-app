@@ -15,7 +15,7 @@ async function preinstall() {
   });
 }
 
-if (!module.parent) {
+if (require.main === module) {
   preinstall().catch((error) => {
     console.error(error);
     process.exitCode = 1;
