@@ -13,6 +13,7 @@
     "deploy": "atvise-scripts deploy",
     "eject": "react-scripts eject",
     "predeploy": "npm run -s build",
+    "preinstall": "node ./scripts/preinstall",
     "prestart": "atvise-scripts prepare",
     "start": "react-scripts start",
     "test": "react-scripts test"
