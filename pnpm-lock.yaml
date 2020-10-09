@@ -295,7 +295,6 @@ packages:
       '@babel/types': 7.11.5
       jsesc: 2.5.2
       source-map: 0.5.7
-    dev: true
     resolution:
       integrity: sha512-DWtQ1PV3r+cLbySoHrwn9RWEgKMBLLma4OBQloPRyDYvc5msJM9kvTLo1YnlJd1P/ZuKbdli3ijr5q3FvAF3uA==
   /@babel/helper-annotate-as-pure/7.10.4:
@@ -368,13 +367,11 @@ packages:
       '@babel/helper-get-function-arity': 7.10.4
       '@babel/template': 7.10.4
       '@babel/types': 7.11.5
-    dev: true
     resolution:
       integrity: sha512-YdaSyz1n8gY44EmN7x44zBn9zQ1Ry2Y+3GTA+3vH6Mizke1Vw0aWDM66FOYEPw8//qKkmqOckrGgTYa+6sceqQ==
   /@babel/helper-get-function-arity/7.10.4:
     dependencies:
       '@babel/types': 7.11.5
-    dev: true
     resolution:
       integrity: sha512-EkN3YDB+SRDgiIUnNgcmiD361ti+AVbL3f3Henf6dqqUyr5dMsorno0lJWJuLhDhkI5sYEpgj6y9kB8AOU1I2A==
   /@babel/helper-hoist-variables/7.10.3:
@@ -507,7 +504,6 @@ packages:
   /@babel/helper-split-export-declaration/7.11.0:
     dependencies:
       '@babel/types': 7.11.5
-    dev: true
     resolution:
       integrity: sha512-74Vejvp6mHkGE+m+k5vHY93FX2cAtrw1zXrZXRlG4l410Nm9PxfEiVTn1PjDPV5SnmieiueY4AFg2xqhNFuuZg==
   /@babel/helper-validator-identifier/7.10.3:
@@ -565,7 +561,6 @@ packages:
     resolution:
       integrity: sha512-oJtNJCMFdIMwXGmx+KxuaD7i3b8uS7TTFYW/FNG2BT8m+fmGHoiPYoH0Pe3gya07WuFmM5FCDIr1x0irkD/hyA==
   /@babel/parser/7.11.5:
-    dev: true
     engines:
       node: '>=6.0.0'
     hasBin: true
@@ -1212,7 +1207,6 @@ packages:
       '@babel/code-frame': 7.10.4
       '@babel/parser': 7.11.5
       '@babel/types': 7.11.5
-    dev: true
     resolution:
       integrity: sha512-ZCjD27cGJFUB6nmCB1Enki3r+L5kJveX9pq1SvAUKoICy6CZ9yD8xO086YXdYhvNjBdnekm4ZnaP5yC8Cs/1tA==
   /@babel/traverse/7.10.3:
@@ -1245,7 +1239,15 @@ packages:
       integrity: sha512-EjiPXt+r7LiCZXEfRpSJd+jUMnBd4/9OUv7Nx3+0u9+eimMwJmG0Q98lw4/289JCoxSE8OolDMNZaaF/JZ69WQ==
   /@babel/traverse/7.11.5_supports-color@5.5.0:
     dependencies:
+      '@babel/code-frame': 7.10.4
+      '@babel/generator': 7.11.6
+      '@babel/helper-function-name': 7.10.4
+      '@babel/helper-split-export-declaration': 7.11.0
+      '@babel/parser': 7.11.5
+      '@babel/types': 7.11.5
       debug: 4.2.0_supports-color@5.5.0
+      globals: 11.12.0
+      lodash: 4.17.20
     dev: false
     peerDependencies:
       supports-color: '*'
@@ -5364,7 +5366,6 @@ packages:
     resolution:
       integrity: sha1-2/dDxsFJklk8ZVVoy2btMsASLr4=
   /globals/11.12.0:
-    dev: true
     engines:
       node: '>=4'
     resolution:
@@ -6425,7 +6426,6 @@ packages:
     resolution:
       integrity: sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
   /jsesc/2.5.2:
-    dev: true
     engines:
       node: '>=4'
     hasBin: true
