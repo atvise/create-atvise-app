@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSubscription } from '@atvise/webmi-react';
-import { VictoryChart , VictoryTheme, VictoryLine } from 'victory';
+import { VictoryChart, VictoryTheme, VictoryLine } from 'victory';
 
 /** A hook that collects values of the given variable */
 function useCollectedSamples(address) {
