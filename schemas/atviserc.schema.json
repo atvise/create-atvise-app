@@ -3,6 +3,9 @@
   "description": "A schema for .atviserc.json files",
   "type": "object",
   "properties": {
+    "$schema": {
+      "type": "string"
+    },
     "host": {
       "type": "string",
       "description": "The host atvise server is running at",
