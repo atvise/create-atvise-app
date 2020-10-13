@@ -16,6 +16,7 @@
   "scripts": {
     "format": "prettier --ignore-path .gitignore . \"!**/{pnpm-lock.yaml,CHANGELOG.md}\"",
     "lint": "eslint --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx .",
+    "preinstall": "node ./scripts/preinstall",
     "sync-packages": "sucrase-node ./scripts/sync-packages.ts && npm run -s format -- --write",
     "test": "npm run -s sync-packages && git diff --exit-code"
   },

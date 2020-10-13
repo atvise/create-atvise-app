@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/atviserc.schema.json",
+  "host": "10.211.55.3",
+  "port": {
+    "opc": 4890,
+    "http": 8090
+  }
+}

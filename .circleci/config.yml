@@ -32,10 +32,13 @@ orbs:
             type: string
           dir:
             type: string
+          options:
+            type: string
+            default: ''
         steps:
           - run:
               name: Release <<parameters.package>> if needed
-              command: npx @ls-age/bump-version release --dir <<parameters.dir>> --package-manager pnpm --gh-token $GH_TOKEN
+              command: npx @ls-age/bump-version release --dir <<parameters.dir>> --package-manager pnpm --gh-token $GH_TOKEN <<parameters.options>>
 
 jobs:
   install:
@@ -87,6 +90,7 @@ jobs:
           root: .
           paths:
             - packages/*/out
+            - packages/*/build
 
   package-sync:
     executor: atvise/node
@@ -105,6 +109,10 @@ jobs:
       - atvise/release:
           package: atvise-scripts
           dir: packages/atvise-scripts
+      - atvise/release:
+          package: playground
+          dir: examples/playground
+          options: --release-files build
 
 workflows:
   version: 2
