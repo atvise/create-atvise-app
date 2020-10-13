@@ -19,7 +19,7 @@
     "test": "react-scripts test"
   },
   "dependencies": {
-    "@atvise/react-scripts": "3.4.2",
+    "@atvise/react-scripts": "3.4.3",
     "@atvise/webmi-react": "^0.1.0",
     "@babel/standalone": "7.11.6",
     "@material-ui/core": "4.11.0",
