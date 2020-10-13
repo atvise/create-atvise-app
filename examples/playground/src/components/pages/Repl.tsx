@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
+import React, { createContext, useEffect, useRef, useState } from 'react';
 import { makeStyles } from '@material-ui/core';
 import { SplitPane } from 'react-collapse-pane';
 import ReplInput from '../repl/Input';
@@ -47,7 +47,7 @@ export default function Repl({ example }: Props) {
     if (example) {
       setFiles(example.files);
     }
-  }, [example]);
+  }, [example, setFiles]);
 
   useEffect(() => {
     console.log(`files: ${files.map((f) => f.name).join(',')}`);

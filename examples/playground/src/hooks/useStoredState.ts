@@ -1,4 +1,4 @@
-import { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import { useState } from 'react';
 
 type Options<T> = {
   storage?: Storage;
