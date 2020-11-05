@@ -1,6 +1,7 @@
+import { addEvent } from './events';
 import { getWebMI } from './webmi';
 
-type VariableValue<T> = webMI.data.VariableValue<T>;
+export type VariableValue<T> = webMI.data.VariableValue<T>;
 type ResultError = webMI.data.ResultError;
 
 const webmiData = getWebMI().data;
@@ -36,9 +37,34 @@ export function write<V>(address: string, value: V) {
   return promisifyDataCall<void>((cb) => webmiData.write(address, value, cb));
 }
 
-export function call<V = Record<string, unknown>>(name: string, args: Record<string, string>) {
+export function call<V = any>(name: string, args: Record<string, string>) {
   return promisifyDataCall<V>((cb) => webmiData.call(name, args, cb));
 }
+
+const isLoginErrorResult = (
+  result: webMI.data.LoginResult
+): result is webMI.data.LoginErrorResult => Object.prototype.hasOwnProperty.call(result, 'error');
+const isLoginSuccessResult = (
+  result: webMI.data.LoginResult
+): result is webMI.data.LoginSuccessResult => !isLoginErrorResult(result) && !!result.username;
+
+export function login(username: string, password: string): Promise<webMI.data.LoginSuccessResult> {
+  return new Promise((resolve, reject) => {
+    webmiData.login(username, password, ({ '': result }) => {
+      if (isLoginErrorResult(result)) reject(new Error(result.error));
+      else resolve(isLoginSuccessResult(result) ? result : null);
+    });
+  });
+}
+
+export function logout() {
+  return new Promise<void>((resolve) => webmiData.logout(resolve));
+}
+
+export const addDataEvent = <N extends keyof webMI.data.DataEvents>(
+  name: N,
+  callback: (e: webMI.data.DataEvents[N]) => void
+) => addEvent(webmiData, name, callback);
 
 type SubscriptionState<V> = { error: Error } | { data: VariableValue<V> };
 
