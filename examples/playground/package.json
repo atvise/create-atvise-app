@@ -1,6 +1,6 @@
 {
   "name": "@atvise/caa-playground",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "A playground that allows you to explore the benefits of using React in an atvise project online",
   "repository": {
