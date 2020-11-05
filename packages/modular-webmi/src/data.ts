@@ -43,7 +43,7 @@ export function call<V = any>(name: string, args: Record<string, string>) {
 
 const isLoginErrorResult = (
   result: webMI.data.LoginResult
-): result is webMI.data.LoginErrorResult => result.hasOwnProperty('error');
+): result is webMI.data.LoginErrorResult => Object.prototype.hasOwnProperty.call(result, 'error');
 const isLoginSuccessResult = (
   result: webMI.data.LoginResult
 ): result is webMI.data.LoginSuccessResult => !isLoginErrorResult(result) && !!result.username;

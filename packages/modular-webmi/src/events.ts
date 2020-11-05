@@ -3,6 +3,9 @@ export type EventHandler<E> = (e: E) => void;
 /**
  * Registers an event handler. Can be used with DOM elements as well as with webMI internal modules
  * (such as webMI.data).
+ * @param target The event target.
+ * @param name The event to handle.
+ * @param handler The event handler.
  */
 export function addEvent<E>(target: any, name: string, handler: EventHandler<E>) {
   let active = true;
@@ -13,9 +16,9 @@ export function addEvent<E>(target: any, name: string, handler: EventHandler<E>)
   });
 
   // NOTE: webMI.removeEvent is not implemented for all events 🙄
+  // We call it with the same signature as addEvent, but don't rely on it to work.
   return () => {
     active = false;
-    // @ts-ignore
-    webMI.removeEvent(target, name, handler);
+    (webMI.removeEvent as typeof webMI.addEvent)(target, name, handler);
   };
 }
