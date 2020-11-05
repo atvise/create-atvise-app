@@ -110,6 +110,9 @@ jobs:
           package: atvise-scripts
           dir: packages/atvise-scripts
       - atvise/release:
+          package: '@atvise/modular-webmi'
+          dir: packages/modular-webmi
+      - atvise/release:
           package: playground
           dir: examples/playground
           options: --release-files build
