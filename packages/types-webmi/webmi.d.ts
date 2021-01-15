@@ -113,10 +113,10 @@ declare namespace webMI.data {
    * });
    * ```
    */
-  function call(
+  function call<R = unknown>(
     functionName: string,
     arguments: { [key: string]: string },
-    callback?: () => void
+    callback?: (e: R) => void
   ): void;
 
   function login(username: string, password: string, callback);
