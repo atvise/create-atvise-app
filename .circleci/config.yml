@@ -113,6 +113,10 @@ jobs:
           package: '@atvise/modular-webmi'
           dir: packages/modular-webmi
       - atvise/release:
+          package: '@atvise/types-webmi'
+          dir: packages/types-webmi
+          options: --skip-release-files
+      - atvise/release:
           package: playground
           dir: examples/playground
           options: --release-files build
