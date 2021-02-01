@@ -12,8 +12,8 @@ const features = [
     imageUrl: 'img/undraw_docusaurus_react.svg',
     description: (
       <>
-        Use React and it's developer tools with live reloading to instantly see your changes, while
-        still using Variables and Scripts on your atvise server.
+        Use React and it&apos;s developer tools with live reloading to instantly see your changes,
+        while still using Variables and Scripts on your atvise server.
       </>
     ),
   },
@@ -29,8 +29,8 @@ const features = [
     description: (
       <>
         Under the hood, we use a fork of <i>create-react-app</i> which is based on webpack, Babel,
-        ESLint and other tools. If you ever want to change that, you can "eject" and edit the config
-        files directly.
+        ESLint and other tools. If you ever want to change that, you can &ldquo;eject&rdquo; and
+        edit the config files directly.
       </>
     ),
   },

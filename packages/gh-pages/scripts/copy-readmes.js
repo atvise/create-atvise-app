@@ -1,4 +1,4 @@
-const { join, relative, dirname, basename } = require('path');
+const { join, relative } = require('path');
 const { promises: fsp } = require('fs');
 const { copy } = require('fs-extra');
 const { default: findPackages } = require('@pnpm/find-workspace-packages');
@@ -15,7 +15,7 @@ async function copyReadme(pkg, { target, name, frontMatter = {} }) {
   // Copy over asserts
   try {
     await copy(join(pkg.dir, 'docs/assets'), outputAssetsPath);
-  } catch (_) {}
+  } catch (_) {} // eslint-disable-line no-empty
 
   // Copy readme
   const outputReadmePath = join(outputPath, 'README.md');

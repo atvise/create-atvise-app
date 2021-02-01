@@ -1,19 +1,24 @@
 {
-  "extends": ["@ls-age", "prettier"],
+  "extends": ["plugin:react/recommended", "@ls-age", "prettier"],
   "parserOptions": {
-    "ecmaVersion": 2020
+    "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "rules": {
     "compat/compat": "off",
     // For tripple-slash-references:
     "spaced-comment": ["error", "always", { "markers": ["/"] }],
     // For optional chaining:
-    "no-unused-expressions": "off"
+    "no-unused-expressions": "off",
+    "react/prop-types": "off"
   },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
       "extends": [
+        "plugin:react/recommended",
         "@ls-age",
         "plugin:@typescript-eslint/recommended",
         "plugin:import/typescript",
@@ -31,5 +36,6 @@
         "@typescript-eslint/explicit-module-boundary-types": "off"
       }
     }
-  ]
+  ],
+  "settings": { "react": { "version": "16.8.4" } }
 }

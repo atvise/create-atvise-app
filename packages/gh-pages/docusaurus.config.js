@@ -1,5 +1,5 @@
-const pkg = require('./package.json');
 const gh = require('github-url-to-object');
+const pkg = require('./package.json');
 
 const repo = gh(pkg.repository.url);
 
