@@ -4,7 +4,6 @@ const { copy } = require('fs-extra');
 const { default: findPackages } = require('@pnpm/find-workspace-packages');
 
 const repoRoot = join(__dirname, '../../..');
-const docsRoot = join(__dirname, '..');
 
 async function copyReadme(pkg, { target, name, frontMatter = {} }) {
   const outputPath = join(__dirname, '../docs/', target);
@@ -49,30 +48,28 @@ async function copyReadmes(root = repoRoot) {
   ];
 
   for (const pkg of await findPackages(root, {})) {
-    if (![docsRoot].includes(pkg.dir)) {
-      const repoRelativeDir = relative(root, pkg.dir);
+    const repoRelativeDir = relative(root, pkg.dir);
 
-      const isRoot = pkg.dir === root;
-      if (!isRoot) {
-        const index = indexes.find((i) => repoRelativeDir.startsWith(`${i.dir}/`));
-        if (!index) {
-          throw new Error(`Unhandled package '${repoRelativeDir}'`);
-        }
-        index.items.push(repoRelativeDir);
+    const isRoot = pkg.dir === root;
+    if (!isRoot) {
+      const index = indexes.find((i) => repoRelativeDir.startsWith(`${i.dir}/`));
+      if (!index) {
+        throw new Error(`Unhandled package '${repoRelativeDir}'`);
       }
-
-      // Copy readme
-      await copyReadme(
-        pkg,
-        isRoot
-          ? {
-              target: '',
-              name: 'create-atvise-app',
-              frontMatter: { sidebar_label: 'Introduction' },
-            }
-          : { target: repoRelativeDir }
-      );
+      index.items.push(repoRelativeDir);
     }
+
+    // Copy readme
+    await copyReadme(
+      pkg,
+      isRoot
+        ? {
+            target: '',
+            name: 'create-atvise-app',
+            frontMatter: { sidebar_label: 'Introduction' },
+          }
+        : { target: repoRelativeDir }
+    );
   }
 
   // Create index files
