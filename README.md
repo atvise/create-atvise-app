@@ -174,6 +174,7 @@ The whole project is split into different packages:
 | :------------------------------------------------ | :---------------------------------------------------------------------------------------------- |
 | [@atvise/caa-playground](./examples/playground)   | A playground that allows you to explore the benefits of using React in an atvise project online |
 | [atvise-scripts](./packages/atvise-scripts)       | The scripts used by create-atvise-app to interact with atvise server                            |
+| [@atvise/caa-docs](./packages/gh-pages)           |                                                                                                 |
 | [@atvise/modular-webmi](./packages/modular-webmi) | Modular exports for webmi.js                                                                    |
 | [@atvise/webmi-react](./packages/react)           | React bindings for webmi                                                                        |
 | [@atvise/types-webmi](./packages/types-webmi)     | Type definitions for webmi.js                                                                   |

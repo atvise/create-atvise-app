@@ -1,3 +1,11 @@
 node_modules
 out
 build
+.docusaurus
+.cache-loader
+
+# Copied over readme files
+packages/gh-pages/docs/README.md
+packages/gh-pages/docs/docs/assets
+packages/gh-pages/docs/packages
+packages/gh-pages/docs/examples
