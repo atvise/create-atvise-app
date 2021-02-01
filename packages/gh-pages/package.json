@@ -28,7 +28,8 @@
     "react-dom": "^16.8.4"
   },
   "devDependencies": {
-    "@pnpm/find-workspace-packages": "2.3.35",
+    "@pnpm/find-workspace-packages": "2.1.6",
+    "@pnpm/logger": "3.2.2",
     "fs-extra": "9.1.0",
     "github-url-to-object": "4.0.4"
   },
