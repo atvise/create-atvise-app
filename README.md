@@ -104,7 +104,7 @@ This will open your browser and show a fully functional React app, displaying th
 
 This project makes very little assumptions on how you will develop your React app: You can use almost all UI libraries, routers, internationalization frameworks etc. that work with react.
 
-Additionally, the [`@atvise/webmi-react`](./packages/webmi-react) package provides data bindings between your react app and atvise server. For example, you can use the `useSubscription` hook to display a variable's value:
+Additionally, the [`@atvise/webmi-react`](./packages/react) package provides data bindings between your react app and atvise server. For example, you can use the `useSubscription` hook to display a variable's value:
 
 ```jsx
 import { useSubscription } from '@atvise/webmi-react';
@@ -123,7 +123,7 @@ function MyLabel(props) {
 }
 ```
 
-Check out the [`@atvise/webmi-react`](./packages/webmi-react) package for details.
+Check out the [`@atvise/webmi-react`](./packages/react) package for details.
 
 ## Deployment
 
