@@ -30,7 +30,7 @@ Next, run _create-react-app_ to create a new project:
 
 > Don't worry about installing _create-react-app_, `npx` (npm package runner, shipped with node.js) does this for you 😀
 
-```console
+```bash
 npx create-react-app \
   --template @atvise/cra-template \
   --scripts-version @atvise/react-scripts \
@@ -46,12 +46,14 @@ What this does:
 
   > <details><summary>Use <i>@atvise/cra-template-typescript</i> to setup <strong>TypeScript support</strong></summary>
   >
-  > ```console
+  > ```bash
   > npx create-react-app \
   >   --template @atvise/cra-template-typescript \
   >   --scripts-version @atvise/react-scripts \
   >   --use-npm \
-  >   my-app
+  >   my-ts-app
+  >
+  >   cd my-ts-app
   > ```
   >
   > </details>
