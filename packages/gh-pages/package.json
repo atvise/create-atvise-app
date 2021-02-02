@@ -1,0 +1,49 @@
+{
+  "name": "@atvise/caa-docs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Sources of our docs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukasHechenberger/create-atvise-app.git",
+    "directory": "packages/gh-pages"
+  },
+  "homepage": "https://github.com/LukasHechenberger/create-atvise-app#readme",
+  "scripts": {
+    "build": "docusaurus build",
+    "clear": "docusaurus clear",
+    "deploy": "docusaurus deploy",
+    "docusaurus": "docusaurus",
+    "prebuild": "node ./scripts/copy-readmes.js",
+    "predeploy": "node ./scripts/copy-schemas.js",
+    "serve": "docusaurus serve",
+    "start": "docusaurus start",
+    "swizzle": "docusaurus swizzle"
+  },
+  "dependencies": {
+    "@docusaurus/core": "2.0.0-alpha.70",
+    "@docusaurus/preset-classic": "2.0.0-alpha.70",
+    "@mdx-js/react": "^1.6.21",
+    "clsx": "^1.1.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "@pnpm/find-workspace-packages": "2.1.6",
+    "@pnpm/logger": "3.2.2",
+    "fs-extra": "9.1.0",
+    "github-url-to-object": "4.0.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

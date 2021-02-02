@@ -102,6 +102,15 @@ jobs:
           name: Validate packages are in sync
           command: npm run test
 
+  deploy-docs:
+    executor: atvise/node
+    steps:
+      - atvise/attach
+      - atvise/git-login
+      - run:
+          name: Deploy docs to GitHub Pages
+          command: GIT_USER=LukasHechenberger npm --prefix packages/gh-pages run deploy -- --skip-build
+
   release:
     executor: atvise/node
     steps:
@@ -143,3 +152,6 @@ workflows:
             - build
             - package-sync
             - lint
+      - deploy-docs:
+          requires:
+            - release
