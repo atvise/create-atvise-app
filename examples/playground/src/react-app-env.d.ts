@@ -1,1 +1,1 @@
-/// <reference types="react-scripts" />
+/// <reference types="@atvise/react-scripts" />
