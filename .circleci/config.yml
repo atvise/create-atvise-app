@@ -105,12 +105,16 @@ jobs:
 
   deploy-docs:
     executor: atvise/node
+    environment:
+      GIT_USER: LukasHechenberger
+      USE_SSH: 'true'
+      CUSTOM_COMMIT_MESSAGE: 'docs: Update GitHub pages [ci skip]'
     steps:
       - atvise/attach
       - atvise/git-login
       - run:
           name: Deploy docs to GitHub Pages
-          command: GIT_USER=LukasHechenberger USE_SSH=true npm --prefix packages/gh-pages run deploy -- --skip-build
+          command: npm --prefix packages/gh-pages run deploy -- --skip-build
 
   release:
     executor: atvise/node
