@@ -165,7 +165,7 @@ workflows:
       - deploy-docs:
           requires:
             - release
-          filter:
+          filters:
             branches:
               only:
                 - master
