@@ -5,7 +5,7 @@
   "description": "A playground that allows you to explore the benefits of using React in an atvise project online",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LukasHechenberger/create-atvise-app.git",
+    "url": "git+https://github.com/atvise/create-atvise-app.git",
     "directory": "examples/playground"
   },
   "homepage": "/react/",

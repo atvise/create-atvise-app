@@ -174,7 +174,7 @@ Using React instead of regular atvise displays and components comes with some dr
 
   Don't use `webMI.translate` or `webMI.gfx`. You can do almost everything in CSS instead.
 
-> This project is currently under development so there may be additional incompatibilities we don't know about yet - Feel free to [create an issue](https://github.com/LukasHechenberger/create-atvise-app/issues/new) if you find one.
+> This project is currently under development so there may be additional incompatibilities we don't know about yet - Feel free to [create an issue](https://github.com/atvise/create-atvise-app/issues/new) if you find one.
 
 ## What's included?
 

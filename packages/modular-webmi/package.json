@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LukasHechenberger/create-atvise-app.git",
+    "url": "git+https://github.com/atvise/create-atvise-app.git",
     "directory": "packages/modular-webmi"
   },
   "author": "Lukas Hechenberger <npm@ls-age.com>",
