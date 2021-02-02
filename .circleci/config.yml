@@ -101,6 +101,7 @@ jobs:
           command: npm run test
 
   deploy-docs:
+    executor: atvise/node
     steps:
       - atvise/attach
       - atvise/git-login
