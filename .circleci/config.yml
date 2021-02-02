@@ -110,7 +110,7 @@ jobs:
       - atvise/git-login
       - run:
           name: Deploy docs to GitHub Pages
-          command: GIT_USER=LukasHechenberger npm --prefix packages/gh-pages run deploy -- --skip-build
+          command: GIT_USER=LukasHechenberger USE_SSH=true npm --prefix packages/gh-pages run deploy -- --skip-build
 
   release:
     executor: atvise/node
