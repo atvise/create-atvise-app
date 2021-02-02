@@ -32,15 +32,34 @@ Next, run _create-react-app_ to create a new project:
 
 ```bash
 npx create-react-app \
-  # Use the atvise template
   --template @atvise/cra-template \
-  # Use an adapted version of react-scripts
   --scripts-version @atvise/react-scripts \
-  # The folder to create the app in
+  --use-npm \
   my-app
 
 cd my-app
 ```
+
+What this does:
+
+- Use the custom atvise create-react-app template _@atvise/cra-template_
+
+  > <details><summary>Use <i>@atvise/cra-template-typescript</i> to setup <strong>TypeScript support</strong></summary>
+  >
+  > ```bash
+  > npx create-react-app \
+  >   --template @atvise/cra-template-typescript \
+  >   --scripts-version @atvise/react-scripts \
+  >   --use-npm \
+  >   my-ts-app
+  >
+  > cd my-ts-app
+  > ```
+  >
+  > </details>
+
+- Use an adapted version of react-scripts _@atvise/react-scripts_
+- Use _npm_ instead of _yarn_ to install packages (optional)
 
 Running `create-react-app` will generate the initial project structure and install all the tools and resources required to build and run your app. These are the most important files:
 
