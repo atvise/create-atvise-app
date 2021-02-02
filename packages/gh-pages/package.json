@@ -15,6 +15,7 @@
     "deploy": "docusaurus deploy",
     "docusaurus": "docusaurus",
     "prebuild": "node ./scripts/copy-readmes.js",
+    "predeploy": "node ./scripts/copy-schemas.js",
     "serve": "docusaurus serve",
     "start": "docusaurus start",
     "swizzle": "docusaurus swizzle"
