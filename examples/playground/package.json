@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "description": "A playground that allows you to explore the benefits of using React in an atvise project online",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LukasHechenberger/create-atvise-app.git",
+    "url": "git+https://github.com/atvise/create-atvise-app.git",
     "directory": "examples/playground"
   },
   "homepage": "/react/",
+  "bugs": {
+    "url": "https://github.com/atvise/create-atvise-app/issues"
+  },
   "scripts": {
     "build": "react-scripts build",
     "deploy": "atvise-scripts deploy",

@@ -6,12 +6,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LukasHechenberger/create-atvise-app.git"
+    "url": "git+https://github.com/atvise/create-atvise-app.git"
   },
   "author": "Lukas Hechenberger <npm@ls-age.com>",
-  "homepage": "https://github.com/LukasHechenberger/create-atvise-app#readme",
+  "homepage": "https://github.com/atvise/create-atvise-app#readme",
   "bugs": {
-    "url": "https://github.com/LukasHechenberger/create-atvise-app/issues"
+    "url": "https://github.com/atvise/create-atvise-app/issues"
   },
   "scripts": {
     "format": "prettier --ignore-path .gitignore . \"!**/{pnpm-lock.yaml,CHANGELOG.md}\"",

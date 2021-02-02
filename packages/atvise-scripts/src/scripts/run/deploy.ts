@@ -102,7 +102,7 @@ export async function deployFile(
     warn(`Attention: There are SVGs in your build output.
 
 Please remove the reference from '${nodeId}' to '${ResourceType.Svg}.Translate' in atvise builder.
-See https://github.com/LukasHechenberger/create-atvise-app/issues/14`);
+See https://github.com/atvise/create-atvise-app/issues/14`);
   }
 
   debug(`Deployed '${nodeId}'`);

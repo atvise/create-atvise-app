@@ -5,10 +5,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LukasHechenberger/create-atvise-app.git",
+    "url": "git+https://github.com/atvise/create-atvise-app.git",
     "directory": "packages/types-webmi"
   },
   "author": "Lukas Hechenberger <npm@ls-age.com>",
+  "bugs": {
+    "url": "https://github.com/atvise/create-atvise-app/issues"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

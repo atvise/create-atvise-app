@@ -55,8 +55,8 @@ function MyLabel(props) {
 
 ---
 
-This package is part of the [create-atvise-app](https://github.com/LukasHechenberger/create-atvise-app#readme) project.
+This package is part of the [create-atvise-app](https://github.com/atvise/create-atvise-app#readme) project.
 
-Refer to [it's documentation](https://github.com/LukasHechenberger/create-atvise-app#readme) for more information.
+Refer to [it's documentation](https://github.com/atvise/create-atvise-app#readme) for more information.
 
 <!-- END footer -->
