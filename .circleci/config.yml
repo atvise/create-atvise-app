@@ -81,18 +81,19 @@ jobs:
 
   build:
     executor: atvise/node
+    parameters:
+      dir:
+        type: string
     steps:
       - atvise/attach
       - run:
-          name: Build packages
-          command: pnpm run -r build
+          name: Build <<parameters.dir>>
+          command: pnpm run -r build --filter ./<<parameters.dir>>
       - persist_to_workspace:
           root: .
           paths:
-            - packages/*/out
-            - packages/*/build
-            - examples/*/out
-            - examples/*/build
+            - <<parameters.dir>>/*/out
+            - <<parameters.dir>>/*/build
 
   package-sync:
     executor: atvise/node
@@ -139,6 +140,13 @@ workflows:
     jobs:
       - install
       - build:
+          name: build-packages
+          dir: packages
+          requires:
+            - install
+      - build:
+          name: build-examples
+          dir: examples
           requires:
             - install
       - package-sync:
@@ -146,10 +154,11 @@ workflows:
             - install
       - lint:
           requires:
-            - build
+            - build-packages
       - release:
           requires:
-            - build
+            - build-packages
+            - build-examples
             - package-sync
             - lint
       - deploy-docs:
