@@ -9,8 +9,8 @@ const projectDescription = 'Tools to integrate atvise into your modern web app p
 module.exports = {
   title,
   tagline: projectDescription,
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  url: `https://${repo.user.toLowerCase()}.github.io`,
+  baseUrl: `/${repo.repo}/`,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
