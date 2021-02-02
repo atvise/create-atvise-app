@@ -12,8 +12,10 @@ ${rows.map(line).join('\n')}`;
 }
 
 export async function syncMetadata(pkg: Project) {
-  const manifest = pkg.manifest;
+  const manifest = pkg.manifest as typeof pkg.manifest & typeof workspacePkg;
 
+  manifest.license = workspacePkg.license;
+  manifest.bugs = workspacePkg.bugs;
   manifest.repository = {
     ...workspacePkg.repository,
     directory: pkg.dir,

@@ -10,6 +10,9 @@
     "directory": "packages/gh-pages"
   },
   "homepage": "https://github.com/atvise/create-atvise-app#readme",
+  "bugs": {
+    "url": "https://github.com/atvise/create-atvise-app/issues"
+  },
   "scripts": {
     "build": "docusaurus build",
     "clear": "docusaurus clear",

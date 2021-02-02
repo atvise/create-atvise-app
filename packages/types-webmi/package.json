@@ -9,6 +9,9 @@
     "directory": "packages/types-webmi"
   },
   "author": "Lukas Hechenberger <npm@ls-age.com>",
+  "bugs": {
+    "url": "https://github.com/atvise/create-atvise-app/issues"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -10,6 +10,9 @@
     "directory": "examples/playground"
   },
   "homepage": "/react/",
+  "bugs": {
+    "url": "https://github.com/atvise/create-atvise-app/issues"
+  },
   "scripts": {
     "build": "react-scripts build",
     "deploy": "atvise-scripts deploy",

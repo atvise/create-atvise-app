@@ -9,6 +9,9 @@
     "directory": "packages/modular-webmi"
   },
   "author": "Lukas Hechenberger <npm@ls-age.com>",
+  "bugs": {
+    "url": "https://github.com/atvise/create-atvise-app/issues"
+  },
   "main": "out/index.js",
   "module": "out/index.mjs",
   "scripts": {

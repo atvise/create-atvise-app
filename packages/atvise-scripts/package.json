@@ -9,6 +9,9 @@
     "directory": "packages/atvise-scripts"
   },
   "author": "Lukas Hechenberger <npm@ls-age.com>",
+  "bugs": {
+    "url": "https://github.com/atvise/create-atvise-app/issues"
+  },
   "main": "out/index.js",
   "bin": {
     "atvise-scripts": "out/bin.js"
