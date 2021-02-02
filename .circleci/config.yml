@@ -157,6 +157,15 @@ workflows:
             - build
             - package-sync
             - lint
+          filters:
+            branches:
+              only:
+                - master
+                - beta
       - deploy-docs:
           requires:
             - release
+          filter:
+            branches:
+              only:
+                - master
