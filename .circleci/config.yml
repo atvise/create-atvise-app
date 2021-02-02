@@ -91,6 +91,7 @@ jobs:
           paths:
             - packages/*/out
             - packages/*/build
+            - packages/*/.docusaurus
             - examples/*/out
             - examples/*/build
 
