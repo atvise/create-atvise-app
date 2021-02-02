@@ -91,6 +91,8 @@ jobs:
           paths:
             - packages/*/out
             - packages/*/build
+            - examples/*/out
+            - examples/*/build
 
   package-sync:
     executor: atvise/node
@@ -119,7 +121,7 @@ jobs:
       - atvise/release:
           package: playground
           dir: examples/playground
-          options: --release-files build
+          options: --release-files examples/playground/build
 
 workflows:
   version: 2
