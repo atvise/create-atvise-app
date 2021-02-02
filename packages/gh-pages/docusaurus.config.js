@@ -68,7 +68,7 @@ module.exports = {
             },
             {
               label: '@atvise/create-react-app',
-              href: 'https://github.com/LukasHechenberger/create-react-app',
+              href: 'https://github.com/atvise/create-react-app',
             },
           ],
         },
