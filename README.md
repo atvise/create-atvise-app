@@ -53,7 +53,7 @@ What this does:
   >   --use-npm \
   >   my-ts-app
   >
-  >   cd my-ts-app
+  > cd my-ts-app
   > ```
   >
   > </details>
