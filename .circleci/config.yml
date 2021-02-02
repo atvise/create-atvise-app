@@ -148,7 +148,7 @@ workflows:
           name: build-examples
           dir: examples
           requires:
-            - install
+            - build-packages
       - package-sync:
           requires:
             - install
