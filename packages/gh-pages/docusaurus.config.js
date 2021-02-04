@@ -17,6 +17,10 @@ module.exports = {
   organizationName: repo.user,
   projectName: repo.repo,
   themeConfig: {
+    algolia: {
+      apiKey: '2a6d8c66efc7e2d62c344346719e6b1c',
+      indexName: 'create-atvise-app',
+    },
     respectPrefersColorScheme: true,
     navbar: {
       title,
