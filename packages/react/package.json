@@ -1,6 +1,6 @@
 {
   "name": "@atvise/webmi-react",
-  "version": "0.1.1-beta.0",
+  "version": "0.1.1",
   "description": "React bindings for webmi",
   "license": "MIT",
   "repository": {

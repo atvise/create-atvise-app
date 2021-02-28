@@ -1,10 +1,10 @@
-<a name="0.1.1-beta.0"></a>
-## 0.1.1-beta.0 (2021-02-28)
+<a name="0.1.1"></a>
+## 0.1.1 (2021-02-28)
 
 
 ### Bug Fixes
 
-* **webmi-react:** Support react 17 ([758fa6f](https://github.com/atvise/create-atvise-app/commits/758fa6f))
+* **webmi-react:** Support react 17 ([#37](https://github.com/atvise/create-atvise-app/issues/37)) ([55488cd](https://github.com/atvise/create-atvise-app/commits/55488cd))
 
 
 
