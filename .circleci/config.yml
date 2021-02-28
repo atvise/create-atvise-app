@@ -129,6 +129,9 @@ jobs:
           package: '@atvise/modular-webmi'
           dir: packages/modular-webmi
       - atvise/release:
+          package: '@atvise/webmi-react'
+          dir: packages/react
+      - atvise/release:
           package: '@atvise/types-webmi'
           dir: packages/types-webmi
           options: --skip-release-files
