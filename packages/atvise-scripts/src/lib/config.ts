@@ -41,8 +41,7 @@ export function normalize(atviserc: FullAtviserc): Config {
 }
 
 export const configName = '.atviserc.json';
-export const schemaUrl =
-  'https://lukashechenberger.github.io/create-atvise-app/schemas/atviserc.schema.json';
+export const schemaUrl = 'https://atvise.github.io/create-atvise-app/schemas/atviserc.schema.json';
 
 interface ConfigPathOptions {
   dir?: string;
