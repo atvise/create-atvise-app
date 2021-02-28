@@ -73,7 +73,7 @@ A hook that returns a variable's value.
 
 - `address` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The variable's node id.
 
-## **Upcoming** hooks
+## Upcoming hooks
 
 - [ ] `useClientVariables()` - Returns logged in user, selected language, ...
 - [ ] `useFilterSubscription()` - Subscription hook with filters (using _webMI.data.subscribeFilters_)
