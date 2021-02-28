@@ -6,6 +6,10 @@ export type UseValueState<V> =
   | { loading: false; error: Error; data?: VariableValue<V> }
   | { loading: false; data: VariableValue<V> };
 
+/**
+ * A hook that returns a variable's value.
+ * @param address The variable's node id.
+ */
 export default function useValue<V>(address: string) {
   const [state, setState] = React.useState<UseValueState<V>>({
     loading: true,
