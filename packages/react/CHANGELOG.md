@@ -1,5 +1,16 @@
-<a name="0.1.1"></a>
-## 0.1.1 (2021-02-28)
+<a name="0.2.0"></a>
+# 0.2.0 (2021-02-28)
+
+
+### Features
+
+* **react-webmi:** Implement useCall hook ([#38](https://github.com/atvise/create-atvise-app/issues/38)) ([c55ce13](https://github.com/atvise/create-atvise-app/commits/c55ce13))
+
+
+
+
+<a name="react-v0.1.1"></a>
+# react-v0.1.1 (2021-02-28)
 
 
 ### Bug Fixes
