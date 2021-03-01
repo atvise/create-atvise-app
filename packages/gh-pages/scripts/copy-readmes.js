@@ -2,7 +2,10 @@ const { join, relative } = require('path');
 const { promises: fsp } = require('fs');
 const { copy } = require('fs-extra');
 const { default: findPackages } = require('@pnpm/find-workspace-packages');
+const gh = require('github-url-to-object');
+const docsManifest = require('../package.json');
 
+const repo = gh(docsManifest.repository.url);
 const repoRoot = join(__dirname, '../../..');
 
 async function copyReadme(pkg, { target, name, frontMatter = {} }) {
@@ -23,13 +26,15 @@ async function copyReadme(pkg, { target, name, frontMatter = {} }) {
   const readmePath = join(pkg.dir, 'README.md');
   const readme = (await fsp.readFile(readmePath, 'utf8'))
     .replace(/^# .*/m, '') // Remove first header
-    .replace(/<!-- BEGIN footer -->[\s\S]*/, ''); // Remove footer
+    .replace(/<!-- BEGIN footer -->[\s\S]*/, '') // Remove footer
+    .trim();
 
   await fsp.writeFile(
     outputReadmePath,
     `---
 slug: '/${target}'
 title: '${name || pkg.manifest.name}'
+custom_edit_url: ${repo.https_url}/edit/master/${join(target, 'README.md')}
 ${Object.entries(frontMatter)
   .map((f) => f.join(': '))
   .join('\n')}
