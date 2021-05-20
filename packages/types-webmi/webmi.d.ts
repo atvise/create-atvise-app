@@ -113,9 +113,9 @@ declare namespace webMI.data {
    * });
    * ```
    */
-  function call<R = unknown>(
+  function call<R = unknown, A = { [key: string]: any }>(
     functionName: string,
-    arguments: { [key: string]: string | number },
+    arguments: A,
     callback?: (e: ResultError | ResultSuccess<R>) => void
   ): void;
 
